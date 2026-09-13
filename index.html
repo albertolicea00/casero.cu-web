@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es" x-data="app()" :class="{ 'dark': darkMode }" style="overflow-x:hidden">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CASERO.cu — Reporta huéspedes al portal oficial desde tu teléfono</title>
+  <meta name="description"
+    content="App nativa (iOS y Android) para que arrendadores de casas particulares en Cuba reporten huéspedes al portal oficial casero.rem.cu desde el teléfono. Proyecto independiente, no oficial." />
+  <meta name="theme-color" content="#B5502A" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E🏠%3C/text%3E%3C/svg%3E" />
+
+  <!-- Open Graph & Twitter -->
+  <meta property="og:title" content="CASERO.cu — Reporta huéspedes al portal oficial desde tu teléfono" />
+  <meta property="og:description"
+    content="App no oficial para arrendadores en Cuba: reporta huéspedes a casero.rem.cu desde iPhone o Android, con tus propias credenciales." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="CASERO.cu — Reporta huéspedes al portal oficial desde tu teléfono" />
+  <meta name="twitter:description" content="App no oficial para arrendadores en Cuba: reporta huéspedes a casero.rem.cu desde iPhone o Android." />
+
+  <!-- Tailwind CDN + config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { clay: '#B5502A' },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'Segoe UI', 'sans-serif'],
+          },
+          keyframes: {
+            fadeIn: { '0%': { opacity: '0', transform: 'translateY(8px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+          },
+          animation: { fadeIn: 'fadeIn 0.4s ease both' }
+        }
+      }
+    }
+  </script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Pre-render Dark Mode Init to prevent FOUC -->
+  <script>
+    if (localStorage.getItem('darkMode') === 'true' || (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+</head>
+
+<body
+  class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans antialiased transition-colors duration-300 overflow-x-hidden">
+
+  <!-- ════════════════════════════════════════
+       NAV
+  ════════════════════════════════════════ -->
+  <nav style="z-index: 9999;"
+    class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+
+      <a href="#" class="flex items-center gap-2 font-bold text-clay text-lg">
+        <span class="text-2xl">🏠</span>
+        <span class="text-gray-900 dark:text-white font-bold">CASERO.cu</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
+        <a href="#como-funciona" class="nav-link">Cómo funciona</a>
+        <a href="#funciones" class="nav-link">Funciones</a>
+        <a href="#seguridad" class="nav-link">Seguridad</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button @click="darkMode = !darkMode"
+          class="w-9 h-9 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+          :title="darkMode ? 'Modo claro' : 'Modo oscuro'">
+          <span x-show="!darkMode"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+            </svg></span>
+          <span x-show="darkMode"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 3v2.25m0 13.5V21m8.974-8.974h-2.25M4.25 12h2.25m13.308-7.308l-1.591 1.591M6.829 17.171l-1.591 1.591m12.932 0l-1.591-1.591M6.829 6.829L5.238 5.238M17.5 12A5.5 5.5 0 1112 6.5a5.5 5.5 0 015.5 5.5z" />
+            </svg></span>
+        </button>
+
+        <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener"
+          class="hidden sm:inline-flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-clay transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+
+        <!-- Mobile menu button -->
+        <button @click="mobileMenuOpen = !mobileMenuOpen"
+          class="md:hidden p-2 text-gray-600 dark:text-gray-300 ml-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+          <svg x-show="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg x-show="mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div x-show="mobileMenuOpen" x-transition x-cloak
+      class="md:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 px-4 py-4 space-y-3 text-sm">
+      <a href="#como-funciona" @click="mobileMenuOpen = false" class="block nav-link">Cómo funciona</a>
+      <a href="#funciones" @click="mobileMenuOpen = false" class="block nav-link">Funciones</a>
+      <a href="#seguridad" @click="mobileMenuOpen = false" class="block nav-link">Seguridad</a>
+      <a href="#faq" @click="mobileMenuOpen = false" class="block nav-link">FAQ</a>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section class="pt-40 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide text-clay uppercase bg-clay/10 px-3 py-1.5 rounded-full mb-6">
+        🇨🇺 Para arrendadores de casas particulares
+      </p>
+      <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">
+        Reporta tus huéspedes al <span class="text-clay">portal oficial</span> sin salir de tu teléfono
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
+        CASERO.cu es un cliente nativo (iOS y Android) que se conecta a <code class="code-inline">casero.rem.cu</code>
+        con tus propias credenciales — igual que lo harías desde el navegador, pero más rápido y sin pelear con el
+        certificado del portal.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
+        <button @click="notifyOpen = true"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-clay text-white font-semibold hover:opacity-90 transition-opacity">
+          Avísame cuando salga
+        </button>
+        <a href="#instalacion"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 font-semibold hover:border-clay transition-colors">
+          Instalar la beta ahora
+        </a>
+      </div>
+      <div class="flex items-center justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+        <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="hover:text-clay transition-colors">
+          <span x-text="starsIOS !== null ? '★ ' + starsIOS + ' · iOS' : 'iOS'"></span>
+        </a>
+        <span class="text-gray-300 dark:text-gray-700">·</span>
+        <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener" class="hover:text-clay transition-colors">
+          <span x-text="starsAndroid !== null ? '★ ' + starsAndroid + ' · Android' : 'Android'"></span>
+        </a>
+        <span class="text-gray-300 dark:text-gray-700">·</span>
+        <span>MIT License</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       AVISO — no oficial (arriba de todo, visible)
+  ════════════════════════════════════════ -->
+  <section class="px-4 sm:px-6 lg:px-8 pb-16">
+    <div class="max-w-3xl mx-auto alert-box">
+      <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <strong class="text-gray-900 dark:text-white">⚠️ Proyecto no oficial.</strong>
+        No está afiliado con CIDP-MININT ni ninguna entidad gubernamental. Se conecta al portal oficial usando tus
+        propias credenciales, exactamente igual que lo haría un navegador. No nos responsabilizamos por cambios en
+        <code class="code-inline">casero.rem.cu</code>, los códigos USSD/SMS, o cualquier problema derivado del uso
+        de este software. Úsalo bajo tu propio riesgo y verifica siempre tus registros por los canales oficiales.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       CÓMO FUNCIONA
+  ════════════════════════════════════════ -->
+  <section id="como-funciona" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/40">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Cómo funciona</h2>
+      <p class="text-center text-gray-500 dark:text-gray-400 mb-14 max-w-xl mx-auto">Tres pasos, sin intermediarios entre tú y el portal oficial.</p>
+      <div class="grid sm:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-clay text-white font-bold flex items-center justify-center mx-auto mb-4">1</div>
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Instala la app</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Compílala desde el código fuente (beta) mientras se publica en App Store / Play Store.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-clay text-white font-bold flex items-center justify-center mx-auto mb-4">2</div>
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Inicia sesión</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Usa el mismo usuario y contraseña que ya tienes para <code class="code-inline">casero.rem.cu</code>.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-clay text-white font-bold flex items-center justify-center mx-auto mb-4">3</div>
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Reporta y consulta</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Registra huéspedes, revisa quién está activo y gestiona sus datos de contacto — tú confirmas cada envío.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       FUNCIONES
+  ════════════════════════════════════════ -->
+  <section id="funciones" class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-14">Funciones</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg></div>
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-1.5">Registro de huéspedes</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Reporta directamente contra la API del portal, con la misma sesión y token que usaría tu navegador.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-1.13a4 4 0 10-4-4 4 4 0 004 4zm6-4a4 4 0 11-8 0 4 4 0 018 0z" /></svg></div>
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-1.5">Huéspedes activos</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Consulta quién está registrado y activo, con sus acompañantes, sin tener que entrar al portal desde el navegador.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></div>
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-1.5">Vías de contacto</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Gestiona los teléfonos y correos asociados a tu cuenta de arrendador.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.04 11.04 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg></div>
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-1.5">
+            Códigos USSD / SMS
+            <span class="badge-soon">Próximamente</span>
+          </h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Reportar sin conexión a internet, por red telefónica — en espera de que se publique el código oficial de reporte.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L15 12l-5.25-5" /><path stroke-linecap="round" stroke-linejoin="round" d="M4 6.5A2.5 2.5 0 016.5 4H20v16H6.5a2.5 2.5 0 010-5H20" /></svg></div>
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-1.5">iOS y Android</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Dos clientes nativos, uno por plataforma, con la misma funcionalidad y el mismo código de conducta.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg></div>
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-1.5">Código abierto</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Licencia MIT en ambos repos — revisa exactamente qué hace la app con tus credenciales.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       SEGURIDAD
+  ════════════════════════════════════════ -->
+  <section id="seguridad" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/40">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Seguridad y aviso legal</h2>
+      <p class="text-center text-gray-500 dark:text-gray-400 mb-12">Lo que la app hace con tus datos, en términos simples.</p>
+
+      <div class="space-y-6">
+        <div class="flex gap-4">
+          <div class="feature-icon shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg></div>
+          <div>
+            <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Tu contraseña no se guarda</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Se usa solo para autenticar la sesión directamente contra <code class="code-inline">casero.rem.cu</code>. No queda guardada en el teléfono ni pasa por ningún servidor de CASERO.cu.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="feature-icon shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+          <div>
+            <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Certificate pinning, no un bypass genérico</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">El portal sirve un certificado que no pasa la validación estándar del sistema. En vez de desactivar la seguridad TLS por completo, la app fija (<em>pinea</em>) el certificado real y conocido del propio portal.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="feature-icon shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg></div>
+          <div>
+            <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Tú confirmas cada reporte</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">La app no envía nada por su cuenta — tú introduces los datos del huésped y confirmas el envío, igual que harías manualmente en el navegador.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       INSTALACIÓN
+  ════════════════════════════════════════ -->
+  <section id="instalacion" class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Instalación (beta)</h2>
+      <p class="text-gray-500 dark:text-gray-400 mb-10">Todavía no está en App Store ni Play Store — se compila desde el código fuente.</p>
+      <div class="grid sm:grid-cols-2 gap-6 text-left">
+        <div class="feature-card">
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-3"> iOS</h3>
+          <pre class="text-xs bg-gray-100 dark:bg-gray-800 rounded-lg p-3 overflow-x-auto"><code>git clone https://github.com/albertolicea00/casero.cu-ios.git
+cd casero.cu-ios
+open CaseroCU.xcodeproj</code></pre>
+        </div>
+        <div class="feature-card">
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-3"> Android</h3>
+          <pre class="text-xs bg-gray-100 dark:bg-gray-800 rounded-lg p-3 overflow-x-auto"><code>git clone https://github.com/albertolicea00/casero.cu-apk.git
+cd casero.cu-apk
+./gradlew installDebug</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       FAQ
+  ════════════════════════════════════════ -->
+  <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/40">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Preguntas frecuentes</h2>
+      <div>
+        <template x-for="(faq, i) in faqs" :key="i">
+          <div class="faq-item">
+            <button class="faq-question" @click="openFaq = openFaq === i ? null : i">
+              <span x-text="faq.q"></span>
+              <svg class="faq-chevron w-5 h-5 text-gray-400" :class="{ open: openFaq === i }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="openFaq === i" x-cloak x-transition class="pb-5 text-sm text-gray-500 dark:text-gray-400 leading-relaxed" x-html="faq.a"></div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       ROADMAP
+  ════════════════════════════════════════ -->
+  <section id="roadmap" class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Roadmap</h2>
+      <ul class="space-y-4">
+        <li class="flex items-start gap-3">
+          <span class="roadmap-badge roadmap-done">Listo</span>
+          <span class="text-sm text-gray-600 dark:text-gray-300">Login y reporte de huéspedes vía la API del portal (iOS + Android)</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="roadmap-badge roadmap-done">Listo</span>
+          <span class="text-sm text-gray-600 dark:text-gray-300">Lista de huéspedes activos y gestión de contactos</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="roadmap-badge roadmap-progress">En espera</span>
+          <span class="text-sm text-gray-600 dark:text-gray-300">Reporte por códigos USSD/SMS — bloqueado hasta que se publique el código oficial en <a href="https://github.com/albertolicea00/MyUSSDCodes-collection" target="_blank" rel="noopener" class="underline text-clay">MyUSSDCodes-collection</a></span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="roadmap-badge roadmap-planned">Planeado</span>
+          <span class="text-sm text-gray-600 dark:text-gray-300">Publicación en App Store y Play Store</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       MÁS APPS
+  ════════════════════════════════════════ -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/40">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-6">Otras apps del mismo autor</h2>
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
+        <a href="https://bancaremota.vercel.app/" target="_blank" rel="noopener" class="footer-link">Banca Remota</a>
+        <span class="text-gray-300 dark:text-gray-700">·</span>
+        <a href="https://cubacell-connect.vercel.app/" target="_blank" rel="noopener" class="footer-link">CubaCell Connect</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer
+    class="bg-gray-50 dark:bg-gray-950 text-gray-600 dark:text-gray-400 py-16 px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+
+        <div class="lg:col-span-1">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-2xl">🏠</span>
+            <span class="text-gray-900 dark:text-white font-bold text-lg">CASERO.cu</span>
+          </div>
+          <p class="text-sm leading-relaxed mb-4 text-gray-500 dark:text-gray-400">Cliente no oficial para que arrendadores en Cuba reporten huéspedes al portal <code class="code-inline">casero.rem.cu</code>.</p>
+        </div>
+
+        <div>
+          <h4 class="text-gray-900 dark:text-white font-semibold mb-4 text-sm">Navegación</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#como-funciona" class="footer-link">Cómo funciona</a></li>
+            <li><a href="#funciones" class="footer-link">Funciones</a></li>
+            <li><a href="#seguridad" class="footer-link">Seguridad</a></li>
+            <li><a href="#faq" class="footer-link">FAQ</a></li>
+            <li><a href="#roadmap" class="footer-link">Roadmap</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-gray-900 dark:text-white font-semibold mb-4 text-sm">Proyecto</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://github.com/albertolicea00/casero.cu-ios/issues" target="_blank" rel="noopener" class="footer-link">Reportar bug (iOS)</a></li>
+            <li><a href="https://github.com/albertolicea00/casero.cu-apk/issues" target="_blank" rel="noopener" class="footer-link">Reportar bug (Android)</a></li>
+            <li><a href="https://github.com/albertolicea00/casero.cu-ios/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="footer-link">Contribuir</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-gray-900 dark:text-white font-semibold mb-4 text-sm">Legal</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/privacy.html" class="footer-link">Política de Privacidad</a></li>
+            <li><a href="/terms.html" class="footer-link">Términos y Condiciones</a></li>
+            <li><a href="/eula.html" class="footer-link">EULA</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-gray-900 dark:text-white font-semibold mb-4 text-sm">Comunidad</h4>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="footer-link flex items-center gap-2">
+                <svg class="w-4 h-4 text-clay" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" /></svg>
+                GitHub — iOS
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener" class="footer-link flex items-center gap-2">
+                <svg class="w-4 h-4 text-clay" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" /></svg>
+                GitHub — Android
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div
+        class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-600 dark:text-gray-600">
+        <p>© <span x-text="new Date().getFullYear()">2026</span> Alberto Licea. Proyecto independiente — no afiliado a CIDP-MININT.</p>
+        <div class="flex gap-4 items-center">
+          <a href="https://github.com/albertolicea00/casero.cu-ios/blob/main/LICENSE" target="_blank" rel="noopener"
+            class="hover:text-clay transition-colors">MIT License</a>
+          <span class="text-gray-800">·</span>
+          <span>iOS · Android · Código abierto</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════
+       NOTIFY MODAL
+  ════════════════════════════════════════ -->
+  <div x-show="notifyOpen" x-cloak x-transition.opacity
+    class="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+    @keydown.escape.window="notifyOpen = false">
+    <div @click.outside="notifyOpen = false" x-transition
+      class="relative bg-white dark:bg-gray-900 rounded-2xl p-6 sm:p-8 max-w-sm w-full shadow-2xl"
+      x-data="notifyForm()">
+      <button @click="notifyOpen = false" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+      <template x-if="!sent">
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Avísame cuando salga</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Te escribimos una vez, cuando la app esté publicada en App Store / Play Store.</p>
+          <form @submit.prevent="submit">
+            <input x-model="email" type="email" required placeholder="tu@correo.com"
+              class="w-full px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white mb-3 focus:outline-none focus:ring-2 focus:ring-clay" />
+            <button type="submit" :disabled="loading"
+              class="w-full py-2.5 rounded-lg bg-clay text-white font-semibold hover:opacity-90 transition-opacity disabled:opacity-50">
+              <span x-show="!loading">Suscribirme</span>
+              <span x-show="loading">Enviando…</span>
+            </button>
+            <p x-show="error" x-text="error" class="text-xs text-red-500 mt-2"></p>
+          </form>
+        </div>
+      </template>
+      <template x-if="sent">
+        <div class="text-center py-4">
+          <div class="text-4xl mb-3">✅</div>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">¡Listo!</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Te avisaremos en cuanto esté disponible.</p>
+        </div>
+      </template>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
