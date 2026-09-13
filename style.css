@@ -124,8 +124,8 @@ body { overflow-x: hidden; }
    ALERT / DISCLAIMER BOX
 ══════════════════════════════════════════ */
 .alert-box {
-  border-radius: 1rem;
-  padding: 1.25rem 1.5rem;
+  text-align: center;
+  padding: 1rem 1.5rem;
   border: 1px solid rgba(181,80,42,.25);
   background: rgba(181,80,42,.06);
 }
