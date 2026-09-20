@@ -8,7 +8,7 @@
   <meta name="description"
     content="App nativa (iOS y Android) para que arrendadores de casas particulares en Cuba reporten huéspedes al portal oficial casero.rem.cu desde el teléfono. Proyecto independiente, no oficial." />
   <meta name="theme-color" content="#B5502A" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E🏠%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="assets/icon/icon-rounded.svg" />
 
   <!-- Open Graph & Twitter -->
   <meta property="og:title" content="CASERO.cu — Reporta huéspedes al portal oficial desde tu teléfono" />
@@ -66,12 +66,13 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
       <a href="#" class="flex items-center gap-2 font-bold text-clay text-lg">
-        <span class="text-2xl">🏠</span>
+        <img src="assets/icon/icon-dark.png" alt="CASERO.cu" class="w-8 h-8 rounded-lg shadow-sm dark:hidden" />
+        <img src="assets/icon/icon-light.png" alt="CASERO.cu" class="w-8 h-8 rounded-lg shadow-sm hidden dark:block" />
         <span class="text-gray-900 dark:text-white font-bold">CASERO.cu</span>
       </a>
 
       <div class="hidden md:flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
-        <a href="#como-funciona" class="nav-link">Cómo funciona</a>
+        <a href="#portal" class="nav-link">Cómo reportar</a>
         <a href="#funciones" class="nav-link">Funciones</a>
         <a href="#seguridad" class="nav-link">Seguridad</a>
         <a href="#faq" class="nav-link">FAQ</a>
@@ -93,14 +94,16 @@
             </svg></span>
         </button>
 
-        <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener"
-          class="hidden sm:inline-flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-clay transition-colors">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+        <div class="hidden sm:flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700">
+          <svg class="w-4 h-4 text-gray-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
             <path
               d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
           </svg>
-          GitHub
-        </a>
+          <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="text-gray-900 dark:text-white hover:text-clay font-medium">iOS</a>
+          <span class="text-gray-400">·</span>
+          <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener" class="text-gray-900 dark:text-white hover:text-clay font-medium">Android</a>
+          <span class="ml-1 text-gray-500" x-text="starsIOS !== null ? '★ ' + starsIOS : ''"></span>
+        </div>
 
         <!-- Mobile menu button -->
         <button @click="mobileMenuOpen = !mobileMenuOpen"
@@ -118,10 +121,20 @@
     <!-- Mobile Menu -->
     <div x-show="mobileMenuOpen" x-transition x-cloak
       class="md:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 px-4 py-4 space-y-3 text-sm">
-      <a href="#como-funciona" @click="mobileMenuOpen = false" class="block nav-link">Cómo funciona</a>
+      <a href="#portal" @click="mobileMenuOpen = false" class="block nav-link">Cómo reportar</a>
       <a href="#funciones" @click="mobileMenuOpen = false" class="block nav-link">Funciones</a>
       <a href="#seguridad" @click="mobileMenuOpen = false" class="block nav-link">Seguridad</a>
       <a href="#faq" @click="mobileMenuOpen = false" class="block nav-link">FAQ</a>
+      <div class="pt-2 pb-1 flex items-center">
+        <svg class="w-5 h-5 text-gray-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+        </svg>
+        <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="ml-2 text-base font-medium text-gray-900 dark:text-white hover:text-clay">iOS</a>
+        <span class="mx-2 text-gray-400">·</span>
+        <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener" class="text-base font-medium text-gray-900 dark:text-white hover:text-clay">Android</a>
+        <span class="ml-auto text-gray-500 font-medium" x-text="starsIOS !== null ? '★ ' + starsIOS : ''"></span>
+      </div>
     </div>
   </nav>
 
@@ -141,64 +154,161 @@
   ════════════════════════════════════════ -->
   <section class="pt-40 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
     <div class="max-w-4xl mx-auto text-center">
-      <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide text-clay uppercase bg-clay/10 px-3 py-1.5 rounded-full mb-6">
-        🇨🇺 Para arrendadores de casas particulares
-      </p>
+      <div class="flex justify-center mb-6">
+        <img src="assets/icon/icon-dark.png" alt="CASERO.cu" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl shadow-sm dark:hidden" />
+        <img src="assets/icon/icon-light.png" alt="CASERO.cu" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl shadow-sm hidden dark:block" />
+      </div>
       <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">
         Reporta tus huéspedes al <span class="text-clay">portal oficial</span> sin salir de tu teléfono
       </h1>
-      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
-        CASERO.cu es un cliente nativo (iOS y Android) que se conecta a <code class="code-inline">casero.rem.cu</code>
-        con tus propias credenciales — igual que lo harías desde el navegador, pero más rápido y sin pelear con el
-        certificado del portal.
-      </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
         <button @click="notifyOpen = true"
           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-clay text-white font-semibold hover:opacity-90 transition-opacity">
           Avísame cuando salga
         </button>
-        <a href="#instalacion"
+        <a href="https://casero.rem.cu/" target="_blank" rel="noopener"
           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 font-semibold hover:border-clay transition-colors">
-          Instalar la beta ahora
+          Ir al portal oficial
         </a>
       </div>
-      <div class="flex items-center justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
-        <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="hover:text-clay transition-colors">
-          <span x-text="starsIOS !== null ? '★ ' + starsIOS + ' · iOS' : 'iOS'"></span>
-        </a>
+      <div class="flex items-center justify-center gap-4 text-sm text-gray-500 dark:text-gray-400 mt-6">
+        <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="hover:text-clay transition-colors">iOS</a>
         <span class="text-gray-300 dark:text-gray-700">·</span>
-        <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener" class="hover:text-clay transition-colors">
-          <span x-text="starsAndroid !== null ? '★ ' + starsAndroid + ' · Android' : 'Android'"></span>
-        </a>
-        <span class="text-gray-300 dark:text-gray-700">·</span>
-        <span>MIT License</span>
+        <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener" class="hover:text-clay transition-colors">Android</a>
       </div>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════
-       CÓMO FUNCIONA
+       PORTAL OFICIAL
   ════════════════════════════════════════ -->
-  <section id="como-funciona" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/40">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Cómo funciona</h2>
-      <p class="text-center text-gray-500 dark:text-gray-400 mb-14 max-w-xl mx-auto">Tres pasos, sin intermediarios entre tú y el portal oficial.</p>
-      <div class="grid sm:grid-cols-3 gap-8">
-        <div class="text-center">
-          <div class="w-12 h-12 rounded-full bg-clay text-white font-bold flex items-center justify-center mx-auto mb-4">1</div>
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Instala la app</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Compílala desde el código fuente (beta) mientras se publica en App Store / Play Store.</p>
+  <section id="portal" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/40">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Cómo reportar al portal oficial</h2>
+      <p class="text-center text-gray-500 dark:text-gray-400 mb-14 max-w-xl mx-auto">Dos vías oficiales para reportar huéspedes. Y sí, hay una tercera.</p>
+
+      <!-- Opción 1 — Portal web -->
+      <div class="feature-card mb-8 !p-0 overflow-hidden" x-data="{ open: false }">
+        <button @click="open = !open" class="w-full flex items-center justify-between gap-4 text-left px-5 py-5 sm:px-6">
+          <span>
+            <h3 class="font-bold text-gray-900 dark:text-white mb-1">Opción 1. A través del Portal Caseros</h3>
+            <span class="text-sm text-clay font-semibold">Requiere conexión a internet</span>
+          </span>
+          <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0" :class="{ open: open }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div x-show="open" x-cloak x-transition class="px-5 pb-5 sm:px-6 sm:pb-6">
+        <ol class="space-y-4">
+          <li class="flex gap-3">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">1</span>
+            <span class="text-sm text-gray-600 dark:text-gray-300">Acceda al Portal Caseros desde <a href="https://casero.rem.cu/" target="_blank" rel="noopener" class="text-clay hover:underline font-medium">casero.rem.cu</a>.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">2</span>
+            <span class="text-sm text-gray-600 dark:text-gray-300">Ingrese con la cuenta registrada previamente como arrendador.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">3</span>
+            <span class="text-sm text-gray-600 dark:text-gray-300">Realice el reporte de la persona hospedada y, cuando corresponda, de sus acompañantes.</span>
+          </li>
+        </ol>
         </div>
-        <div class="text-center">
-          <div class="w-12 h-12 rounded-full bg-clay text-white font-bold flex items-center justify-center mx-auto mb-4">2</div>
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Inicia sesión</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Usa el mismo usuario y contraseña que ya tienes para <code class="code-inline">casero.rem.cu</code>.</p>
+      </div>
+
+      <!-- Opción 2 — SMS -->
+      <div class="feature-card !p-0 overflow-hidden" x-data="{ open: false }">
+        <button @click="open = !open" class="w-full flex items-center justify-between gap-4 text-left px-5 py-5 sm:px-6">
+          <span>
+            <h3 class="font-bold text-gray-900 dark:text-white mb-1">Opción 2. Mediante SMS</h3>
+            <span class="text-sm text-clay font-semibold">Requiere haber registrado antes el número del arrendador — pueden aplicar tarifas de ETECSA</span>
+          </span>
+          <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0" :class="{ open: open }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div x-show="open" x-cloak x-transition class="px-5 pb-5 sm:px-6 sm:pb-6">
+
+        <h4 class="font-semibold text-gray-900 dark:text-white text-sm mb-3">Paso previo: asociar el número de teléfono</h4>
+        <ol class="space-y-4 mb-8">
+          <li class="flex gap-3">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">1</span>
+            <span class="text-sm text-gray-600 dark:text-gray-300">Llame desde su teléfono móvil al <code class="code-inline">18808</code> para solicitar la asociación del número con su registro como arrendador.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">2</span>
+            <span class="text-sm text-gray-600 dark:text-gray-300">Espere la confirmación del registro — el proceso no se considera concluido hasta recibirla.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">3</span>
+            <span class="text-sm text-gray-600 dark:text-gray-300">Una vez habilitado el número, podrá usarlo para reportar mediante SMS.</span>
+          </li>
+        </ol>
+
+        <h4 class="font-semibold text-gray-900 dark:text-white text-sm mb-3">1. Reporte de un huésped extranjero</h4>
+        <ol class="space-y-4 mb-8">
+          <li class="flex gap-3">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">1</span>
+            <span class="text-sm text-gray-600 dark:text-gray-300">Desde el número registrado como arrendador, envíe un SMS al <code class="code-inline">7344</code> con: <code class="code-inline">HC + pasaporte + días de estancia</code>. Ejemplo: <code class="code-inline">HCJ1459863 5</code>.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">2</span>
+            <span class="text-sm text-gray-600 dark:text-gray-300">El sistema responde con nombre, ciudadanía y un código de confirmación.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">3</span>
+            <span class="text-sm text-gray-600 dark:text-gray-300">Reenvíe el código recibido precedido por las siglas <code class="code-inline">HC</code>. Ejemplo: <code class="code-inline">HC2568</code>.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">4</span>
+            <span class="text-sm text-gray-600 dark:text-gray-300">Confirmado, el sistema envía un código de registro que acredita que el reporte fue realizado.</span>
+          </li>
+        </ol>
+
+        <h4 class="font-semibold text-gray-900 dark:text-white text-sm mb-3">2. Reporte de acompañantes</h4>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Cuando el huésped extranjero esté acompañado por una persona residente en Cuba, el reporte del acompañante se realiza después de confirmado el registro del huésped.</p>
+        <ol class="space-y-4">
+          <li class="flex gap-3">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">1</span>
+            <span class="text-sm text-gray-600 dark:text-gray-300">Desde el número registrado como arrendador, envíe un SMS al <code class="code-inline">7344</code> con: <code class="code-inline">HC + pasaporte del huésped + carné del acompañante + días</code>. Ejemplo: <code class="code-inline">HCJ1459863 89092120806 5</code>.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">2</span>
+            <span class="text-sm text-gray-600 dark:text-gray-300">Reciba el código de confirmación y reenvíelo precedido por <code class="code-inline">HC</code>.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">3</span>
+            <span class="text-sm text-gray-600 dark:text-gray-300">El sistema envía el código de registro correspondiente.</span>
+          </li>
+        </ol>
+
+        <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-700">
+          <h4 class="font-semibold text-gray-900 dark:text-white text-sm mb-2">Importante</h4>
+          <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-1.5 list-disc list-inside">
+            <li>Se realiza un registro independiente por cada huésped.</li>
+            <li>El huésped principal debe registrarse antes que sus acompañantes.</li>
+            <li>Las siglas <code class="code-inline">HC</code> deben colocarse antes de la información enviada por SMS.</li>
+            <li>Los reportes se realizan uno a uno.</li>
+            <li>La solicitud de confirmación expira a las seis horas; pasado ese plazo debe iniciarse nuevamente el proceso.</li>
+            <li>Si el SMS no respeta el formato establecido, el sistema puede no generar respuesta.</li>
+          </ul>
+          <p class="text-xs text-gray-400 dark:text-gray-500 mt-4 leading-relaxed">Nota: el procedimiento SMS descrito fue diseñado para reportar huéspedes extranjeros identificados por pasaporte. Desde agosto de 2026, la obligación de información al MININT comprende también a personas residentes en el exterior — no hemos localizado información institucional reciente que detalle un formato de SMS específico para ciudadanos cubanos residentes en el exterior.</p>
         </div>
-        <div class="text-center">
-          <div class="w-12 h-12 rounded-full bg-clay text-white font-bold flex items-center justify-center mx-auto mb-4">3</div>
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Reporta y consulta</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Registra huéspedes, revisa quién está activo y gestiona sus datos de contacto — tú confirmas cada envío.</p>
         </div>
+      </div>
+
+      <p class="text-center text-xs text-gray-400 dark:text-gray-500 mt-8">El reporte al Ministerio del Interior no tiene tarifa administrativa establecida. 
+        <br>El Portal Caseros requiere acceso a internet; el reporte por SMS puede aplicar tarifas vigentes de ETECSA.</p>
+
+      <!-- Opción 3 — CASERO.cu -->
+      <div class="feature-card mt-8 border-2 border-clay/30 bg-clay/5 dark:bg-clay/10">
+        <h3 class="font-bold text-gray-900 dark:text-white mb-1">Opción 3. Con la app CASERO.cu</h3>
+        <p class="text-sm text-clay font-semibold mb-4">La forma más rápida — todo integrado, sin cambiar de app</p>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">CASERO.cu reúne el reporte de huéspedes, la consulta de huéspedes activos y la gestión de tus contactos en una sola app, conectada directamente al Portal Caseros con tus propias credenciales. Sin formularios web desde el navegador ni pelear con el certificado del portal — todo desde el teléfono, en un par de toques.</p>
+        <button @click="notifyOpen = true"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-clay text-white text-sm font-semibold hover:opacity-90 transition-opacity">
+          Avísame cuando esté lista
+        </button>
       </div>
     </div>
   </section>
@@ -287,73 +397,42 @@
       </div>
     </div>
   </section>
-
-  <!-- ════════════════════════════════════════
-       INSTALACIÓN
-  ════════════════════════════════════════ -->
-  <section id="instalacion" class="py-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Instalación (beta)</h2>
-      <p class="text-gray-500 dark:text-gray-400 mb-10">Todavía no está en App Store ni Play Store — se compila desde el código fuente.</p>
-      <div class="grid sm:grid-cols-2 gap-6 text-left">
-        <div class="feature-card">
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-3"> iOS</h3>
-          <pre class="text-xs bg-gray-100 dark:bg-gray-800 rounded-lg p-3 overflow-x-auto"><code>git clone https://github.com/albertolicea00/casero.cu-ios.git
-cd casero.cu-ios
-open CaseroCU.xcodeproj</code></pre>
-        </div>
-        <div class="feature-card">
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-3"> Android</h3>
-          <pre class="text-xs bg-gray-100 dark:bg-gray-800 rounded-lg p-3 overflow-x-auto"><code>git clone https://github.com/albertolicea00/casero.cu-apk.git
-cd casero.cu-apk
-./gradlew installDebug</code></pre>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ════════════════════════════════════════
        FAQ
   ════════════════════════════════════════ -->
   <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/40">
     <div class="max-w-2xl mx-auto">
       <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Preguntas frecuentes</h2>
-      <div>
-        <template x-for="(faq, i) in faqs" :key="i">
+
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Sobre la app</h3>
+      <div class="mb-12">
+        <template x-for="(faq, i) in faqsApp" :key="'app-' + i">
           <div class="faq-item">
-            <button class="faq-question" @click="openFaq = openFaq === i ? null : i">
+            <button class="faq-question" @click="openFaqApp = openFaqApp === i ? null : i">
               <span x-text="faq.q"></span>
-              <svg class="faq-chevron w-5 h-5 text-gray-400" :class="{ open: openFaq === i }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <svg class="faq-chevron w-5 h-5 text-gray-400" :class="{ open: openFaqApp === i }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div x-show="openFaq === i" x-cloak x-transition class="px-6 pb-5 text-sm text-gray-500 dark:text-gray-400 leading-relaxed" x-html="faq.a"></div>
+            <div x-show="openFaqApp === i" x-cloak x-transition class="px-6 pb-5 text-sm text-gray-500 dark:text-gray-400 leading-relaxed" x-html="faq.a"></div>
           </div>
         </template>
       </div>
-    </div>
-  </section>
 
-  <!-- ════════════════════════════════════════
-       ROADMAP
-  ════════════════════════════════════════ -->
-  <section id="roadmap" class="py-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Roadmap</h2>
-      <ul class="space-y-4">
-        <li class="flex items-start gap-3">
-          <span class="roadmap-badge roadmap-done">Listo</span>
-          <span class="text-sm text-gray-600 dark:text-gray-300">Login y reporte de huéspedes vía la API del portal (iOS + Android)</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="roadmap-badge roadmap-done">Listo</span>
-          <span class="text-sm text-gray-600 dark:text-gray-300">Lista de huéspedes activos y gestión de contactos</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="roadmap-badge roadmap-planned">Planeado</span>
-          <span class="text-sm text-gray-600 dark:text-gray-300">Publicación en App Store y Play Store</span>
-        </li>
-      </ul>
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Sobre el reporte al MININT (legal)</h3>
+      <div>
+        <template x-for="(faq, i) in faqsLegal" :key="'legal-' + i">
+          <div class="faq-item">
+            <button class="faq-question" @click="openFaqLegal = openFaqLegal === i ? null : i">
+              <span x-text="faq.q"></span>
+              <svg class="faq-chevron w-5 h-5 text-gray-400" :class="{ open: openFaqLegal === i }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="openFaqLegal === i" x-cloak x-transition class="px-6 pb-5 text-sm text-gray-500 dark:text-gray-400 leading-relaxed" x-html="faq.a"></div>
+          </div>
+        </template>
+      </div>
     </div>
   </section>
 
@@ -452,9 +531,8 @@ cd casero.cu-apk
     <div class="max-w-lg mx-auto text-center">
 
       <div class="flex justify-center mb-6">
-        <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-clay/10 flex items-center justify-center text-4xl sm:text-5xl shadow-sm">
-          🏠
-        </div>
+        <img src="assets/icon/icon-dark.png" alt="CASERO.cu" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl shadow-sm dark:hidden" />
+        <img src="assets/icon/icon-light.png" alt="CASERO.cu" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl shadow-sm hidden dark:block" />
       </div>
 
       <div class="inline-flex items-center gap-2 text-clay text-xs font-semibold uppercase tracking-widest rounded-full px-4 py-1.5 mb-5">
@@ -497,7 +575,8 @@ cd casero.cu-apk
 
         <div class="lg:col-span-1">
           <div class="flex items-center gap-2 mb-4">
-            <span class="text-2xl">🏠</span>
+            <img src="assets/icon/icon-dark.png" alt="CASERO.cu" class="w-8 h-8 rounded-lg shadow-sm dark:hidden" />
+            <img src="assets/icon/icon-light.png" alt="CASERO.cu" class="w-8 h-8 rounded-lg shadow-sm hidden dark:block" />
             <span class="text-gray-900 dark:text-white font-bold text-lg">CASERO.cu</span>
           </div>
           <p class="text-sm leading-relaxed mb-4 text-gray-500 dark:text-gray-400">Cliente no oficial para que arrendadores en Cuba reporten huéspedes al portal <code class="code-inline">casero.rem.cu</code>.</p>
@@ -506,20 +585,10 @@ cd casero.cu-apk
         <div>
           <h4 class="text-gray-900 dark:text-white font-semibold mb-4 text-sm">Navegación</h4>
           <ul class="space-y-2 text-sm">
-            <li><a href="#como-funciona" class="footer-link">Cómo funciona</a></li>
+            <li><a href="#portal" class="footer-link">Cómo reportar</a></li>
             <li><a href="#funciones" class="footer-link">Funciones</a></li>
             <li><a href="#seguridad" class="footer-link">Seguridad</a></li>
             <li><a href="#faq" class="footer-link">FAQ</a></li>
-            <li><a href="#roadmap" class="footer-link">Roadmap</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-gray-900 dark:text-white font-semibold mb-4 text-sm">Proyecto</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="https://github.com/albertolicea00/casero.cu-ios/issues" target="_blank" rel="noopener" class="footer-link">Reportar bug (iOS)</a></li>
-            <li><a href="https://github.com/albertolicea00/casero.cu-apk/issues" target="_blank" rel="noopener" class="footer-link">Reportar bug (Android)</a></li>
-            <li><a href="https://github.com/albertolicea00/casero.cu-ios/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="footer-link">Contribuir</a></li>
           </ul>
         </div>
 
@@ -529,6 +598,15 @@ cd casero.cu-apk
             <li><a href="/privacy.html" class="footer-link">Política de Privacidad</a></li>
             <li><a href="/terms.html" class="footer-link">Términos y Condiciones</a></li>
             <li><a href="/eula.html" class="footer-link">EULA</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-gray-900 dark:text-white font-semibold mb-4 text-sm">Fuentes</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://cubatramite.com/reporte-a-inmigracion-del-registro-de-turistas-extranjeros-hospedados-en-viviendas-de-alquiler/" target="_blank" rel="noopener" class="footer-link">CubaTramite</a></li>
+            <li><a href="https://www.directoriocubano.com/tramites/reporte-huespedes-extranjeros-viviendas-alquiler/" target="_blank" rel="noopener" class="footer-link">Directorio Cubano</a></li>
+            <li><a href="http://www.cubadebate.cu/opinion/2019/04/15/comunicacion-y-politica-en-tiempos-de-big-data/" target="_blank" rel="noopener" class="footer-link">Cubadebate</a></li>
           </ul>
         </div>
 
