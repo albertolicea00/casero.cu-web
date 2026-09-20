@@ -25,20 +25,12 @@ function app() {
         a: 'Esa vía está en desarrollo — el código de reporte por USSD/SMS todavía no ha sido publicado por las autoridades, así que hoy en día la app funciona reportando a través del portal web (necesitas datos móviles o wifi). En cuanto el código oficial se publique, se habilitará el reporte por USSD/SMS sin conexión.'
       },
       {
-        q: '¿La app reporta a mis huéspedes automáticamente por mí?',
-        a: 'No. Tú introduces los datos del huésped y confirmas el envío — la app solo mimetiza lo que harías manualmente en el navegador, no toma decisiones ni reporta nada sin que tú lo confirmes. Sigues siendo tú el responsable de reportar correcta y puntualmente ante las autoridades.'
-      },
-      {
-        q: '¿Cuánto cuesta?',
-        a: 'Nada. Es gratis y de código abierto (MIT).'
-      },
-      {
         q: '¿Cuándo estará en App Store / Play Store?',
         a: 'Por ahora está en beta — solo instalable compilando desde el código fuente en GitHub. <button onclick="window.dispatchEvent(new CustomEvent(\'notify:open\'))" class="text-[color:var(--color-clay)] underline cursor-pointer">Suscríbete</button> para que te avisemos cuando se publique.'
       },
       {
-        q: '¿Puedo contribuir al proyecto?',
-        a: 'Sí. Cada repo (<a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="underline">iOS</a> / <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener" class="underline">Android</a>) tiene su propio <code class="code-inline">CONTRIBUTING.md</code>. Issues, PRs y commits deben estar en inglés.'
+        q: '¿Cuánto cuesta?',
+        a: 'Cero. Que con los pocos turistas que llegan últimamente, como para encima estar pagando por registrarlos.'
       },
     ],
     init() {
