@@ -67,24 +67,32 @@ body { overflow-x: hidden; }
    FAQ ACCORDION
 ══════════════════════════════════════════ */
 .faq-item {
-  border-bottom: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: 1rem;
+  border: 1px solid #f3f4f6;
+  overflow: hidden;
+  transition: border-color 0.2s;
+  margin-bottom: 0.75rem;
 }
-.dark .faq-item { border-color: #1f2937; }
+.dark .faq-item { background: #1f2937; border-color: #374151; }
 .faq-question {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.25rem 0;
+  padding: 1rem 1.5rem;
   text-align: left;
   font-weight: 600;
   color: #111827;
   background: none;
   border: none;
   cursor: pointer;
+  transition: background 0.15s;
 }
+.faq-question:hover { background: #f9fafb; }
 .dark .faq-question { color: #fff; }
+.dark .faq-question:hover { background: rgba(255,255,255,.04); }
 .faq-chevron { transition: transform 0.2s; flex-shrink: 0; }
 .faq-chevron.open { transform: rotate(180deg); }
 
