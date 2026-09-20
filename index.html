@@ -7,7 +7,7 @@
   <title>CASERO.cu — Reporta huéspedes al portal oficial desde tu teléfono</title>
   <meta name="description"
     content="App nativa (iOS y Android) para que arrendadores de casas particulares en Cuba reporten huéspedes al portal oficial casero.rem.cu desde el teléfono. Proyecto independiente, no oficial." />
-  <meta name="theme-color" content="#B5502A" />
+  <meta name="theme-color" content="#7F2157" />
   <link rel="icon" type="image/svg+xml" href="assets/icon/icon-rounded.svg" />
 
   <!-- Open Graph & Twitter -->
@@ -26,7 +26,7 @@
       darkMode: 'class',
       theme: {
         extend: {
-          colors: { clay: '#B5502A' },
+          colors: { clay: '#7F2157' },
           fontFamily: {
             sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'Segoe UI', 'sans-serif'],
           },
@@ -56,31 +56,31 @@
 </head>
 
 <body
-  class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans antialiased transition-colors duration-300 overflow-x-hidden">
+  class="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 font-sans antialiased transition-colors duration-300 overflow-x-hidden">
 
   <!-- ════════════════════════════════════════
        NAV
   ════════════════════════════════════════ -->
   <nav style="z-index: 9999;"
-    class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+    class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-md border-b border-neutral-100 dark:border-neutral-800">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
       <a href="#" class="flex items-center gap-2 font-bold text-clay text-lg">
         <img src="assets/icon/icon-dark.png" alt="CASERO.cu" class="w-8 h-8 rounded-lg shadow-sm dark:hidden" />
         <img src="assets/icon/icon-light.png" alt="CASERO.cu" class="w-8 h-8 rounded-lg shadow-sm hidden dark:block" />
-        <span class="text-gray-900 dark:text-white font-bold">CASERO.cu</span>
+        <span class="text-neutral-900 dark:text-white font-bold">CASERO<span class="text-clay">.cu</span></span>
       </a>
 
-      <div class="hidden md:flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
+      <div class="hidden md:flex items-center gap-6 text-sm text-neutral-600 dark:text-neutral-400">
         <a href="#portal" class="nav-link">Cómo reportar</a>
         <a href="#funciones" class="nav-link">Funciones</a>
-        <a href="#seguridad" class="nav-link">Seguridad</a>
         <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#seguridad" class="nav-link">Seguridad</a>
       </div>
 
       <div class="flex items-center gap-3">
         <button @click="darkMode = !darkMode"
-          class="w-9 h-9 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+          class="w-9 h-9 rounded-full flex items-center justify-center bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
           :title="darkMode ? 'Modo claro' : 'Modo oscuro'">
           <span x-show="!darkMode"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -94,20 +94,20 @@
             </svg></span>
         </button>
 
-        <div class="hidden sm:flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700">
-          <svg class="w-4 h-4 text-gray-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
+        <div class="hidden sm:flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-lg border border-neutral-200 dark:border-neutral-700">
+          <svg class="w-4 h-4 text-neutral-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
             <path
               d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
           </svg>
-          <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="text-gray-900 dark:text-white hover:text-clay font-medium">iOS</a>
-          <span class="text-gray-400">·</span>
-          <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener" class="text-gray-900 dark:text-white hover:text-clay font-medium">Android</a>
-          <span class="ml-1 text-gray-500" x-text="starsIOS !== null ? '★ ' + starsIOS : ''"></span>
+          <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="text-neutral-900 dark:text-white hover:text-clay font-medium">iOS</a>
+          <span class="text-neutral-400">·</span>
+          <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener" class="text-neutral-900 dark:text-white hover:text-clay font-medium">Android</a>
+          <span class="ml-1 text-neutral-500" x-text="starsIOS !== null ? '★ ' + starsIOS : ''"></span>
         </div>
 
         <!-- Mobile menu button -->
         <button @click="mobileMenuOpen = !mobileMenuOpen"
-          class="md:hidden p-2 text-gray-600 dark:text-gray-300 ml-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+          class="md:hidden p-2 text-neutral-600 dark:text-neutral-300 ml-1 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
           <svg x-show="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -120,20 +120,20 @@
 
     <!-- Mobile Menu -->
     <div x-show="mobileMenuOpen" x-transition x-cloak
-      class="md:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 px-4 py-4 space-y-3 text-sm">
+      class="md:hidden border-t border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-950 px-4 py-4 space-y-3 text-sm">
       <a href="#portal" @click="mobileMenuOpen = false" class="block nav-link">Cómo reportar</a>
       <a href="#funciones" @click="mobileMenuOpen = false" class="block nav-link">Funciones</a>
-      <a href="#seguridad" @click="mobileMenuOpen = false" class="block nav-link">Seguridad</a>
       <a href="#faq" @click="mobileMenuOpen = false" class="block nav-link">FAQ</a>
+      <a href="#seguridad" @click="mobileMenuOpen = false" class="block nav-link">Seguridad</a>
       <div class="pt-2 pb-1 flex items-center">
-        <svg class="w-5 h-5 text-gray-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
+        <svg class="w-5 h-5 text-neutral-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
           <path
             d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
         </svg>
-        <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="ml-2 text-base font-medium text-gray-900 dark:text-white hover:text-clay">iOS</a>
-        <span class="mx-2 text-gray-400">·</span>
-        <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener" class="text-base font-medium text-gray-900 dark:text-white hover:text-clay">Android</a>
-        <span class="ml-auto text-gray-500 font-medium" x-text="starsIOS !== null ? '★ ' + starsIOS : ''"></span>
+        <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="ml-2 text-base font-medium text-neutral-900 dark:text-white hover:text-clay">iOS</a>
+        <span class="mx-2 text-neutral-400">·</span>
+        <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener" class="text-base font-medium text-neutral-900 dark:text-white hover:text-clay">Android</a>
+        <span class="ml-auto text-neutral-500 font-medium" x-text="starsIOS !== null ? '★ ' + starsIOS : ''"></span>
       </div>
     </div>
   </nav>
@@ -142,8 +142,8 @@
        AVISO — no oficial
   ════════════════════════════════════════ -->
   <div class="pt-20 mx-auto alert-box">
-    <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-      <strong class="text-gray-900 dark:text-white">⚠️ Proyecto no oficial</strong>, no afiliado con CIDP-MININT.
+    <p class="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+      <strong class="text-neutral-900 dark:text-white">⚠️ Proyecto no oficial</strong>, no afiliado con CIDP-MININT.
       Usa tus propias credenciales para conectarse a <code class="code-inline">casero.rem.cu</code>, igual que un
       navegador. Verifica siempre tus registros por canales oficiales.
     </p>
@@ -158,7 +158,7 @@
         <img src="assets/icon/icon-dark.png" alt="CASERO.cu" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl shadow-sm dark:hidden" />
         <img src="assets/icon/icon-light.png" alt="CASERO.cu" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl shadow-sm hidden dark:block" />
       </div>
-      <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">
+      <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-neutral-900 dark:text-white mb-6 leading-tight">
         Reporta tus huéspedes al <span class="text-clay">portal oficial</span> sin salir de tu teléfono
       </h1>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
@@ -167,13 +167,13 @@
           Avísame cuando salga
         </button>
         <a href="https://casero.rem.cu/" target="_blank" rel="noopener"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 font-semibold hover:border-clay transition-colors">
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-neutral-200 dark:border-neutral-700 font-semibold hover:border-clay transition-colors">
           Ir al portal oficial
         </a>
       </div>
-      <div class="flex items-center justify-center gap-4 text-sm text-gray-500 dark:text-gray-400 mt-6">
+      <div class="flex items-center justify-center gap-4 text-sm text-neutral-500 dark:text-neutral-400 mt-6">
         <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="hover:text-clay transition-colors">iOS</a>
-        <span class="text-gray-300 dark:text-gray-700">·</span>
+        <span class="text-neutral-300 dark:text-neutral-700">·</span>
         <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener" class="hover:text-clay transition-colors">Android</a>
       </div>
     </div>
@@ -182,19 +182,19 @@
   <!-- ════════════════════════════════════════
        PORTAL OFICIAL
   ════════════════════════════════════════ -->
-  <section id="portal" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/40">
+  <section id="portal" class="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-50 dark:bg-neutral-900/40">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Cómo reportar al portal oficial</h2>
-      <p class="text-center text-gray-500 dark:text-gray-400 mb-14 max-w-xl mx-auto">Dos vías oficiales para reportar huéspedes. Y sí, hay una tercera.</p>
+      <h2 class="text-3xl font-bold text-center text-neutral-900 dark:text-white mb-4">Cómo reportar al portal oficial</h2>
+      <p class="text-center text-neutral-500 dark:text-neutral-400 mb-14 max-w-xl mx-auto">Dos vías oficiales para reportar huéspedes. Y sí, hay una tercera.</p>
 
       <!-- Opción 1 — Portal web -->
       <div class="feature-card mb-8 !p-0 overflow-hidden" x-data="{ open: false }">
         <button @click="open = !open" class="w-full flex items-center justify-between gap-4 text-left px-5 py-5 sm:px-6">
           <span>
-            <h3 class="font-bold text-gray-900 dark:text-white mb-1">Opción 1. A través del Portal Caseros</h3>
+            <h3 class="font-bold text-neutral-900 dark:text-white mb-1">Opción 1. A través del Portal Caseros</h3>
             <span class="text-sm text-clay font-semibold">Requiere conexión a internet</span>
           </span>
-          <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0" :class="{ open: open }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg class="faq-chevron w-5 h-5 text-neutral-400 shrink-0" :class="{ open: open }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
@@ -202,15 +202,15 @@
         <ol class="space-y-4">
           <li class="flex gap-3">
             <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">1</span>
-            <span class="text-sm text-gray-600 dark:text-gray-300">Acceda al Portal Caseros desde <a href="https://casero.rem.cu/" target="_blank" rel="noopener" class="text-clay hover:underline font-medium">casero.rem.cu</a>.</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-300">Acceda al Portal Caseros desde <a href="https://casero.rem.cu/" target="_blank" rel="noopener" class="text-clay hover:underline font-medium">casero.rem.cu</a>.</span>
           </li>
           <li class="flex gap-3">
             <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">2</span>
-            <span class="text-sm text-gray-600 dark:text-gray-300">Ingrese con la cuenta registrada previamente como arrendador.</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-300">Ingrese con la cuenta registrada previamente como arrendador.</span>
           </li>
           <li class="flex gap-3">
             <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">3</span>
-            <span class="text-sm text-gray-600 dark:text-gray-300">Realice el reporte de la persona hospedada y, cuando corresponda, de sus acompañantes.</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-300">Realice el reporte de la persona hospedada y, cuando corresponda, de sus acompañantes.</span>
           </li>
         </ol>
         </div>
@@ -220,71 +220,71 @@
       <div class="feature-card !p-0 overflow-hidden" x-data="{ open: false }">
         <button @click="open = !open" class="w-full flex items-center justify-between gap-4 text-left px-5 py-5 sm:px-6">
           <span>
-            <h3 class="font-bold text-gray-900 dark:text-white mb-1">Opción 2. Mediante SMS</h3>
+            <h3 class="font-bold text-neutral-900 dark:text-white mb-1">Opción 2. Mediante SMS</h3>
             <span class="text-sm text-clay font-semibold">Requiere haber registrado antes el número del arrendador — pueden aplicar tarifas de ETECSA</span>
           </span>
-          <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0" :class="{ open: open }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg class="faq-chevron w-5 h-5 text-neutral-400 shrink-0" :class="{ open: open }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
         <div x-show="open" x-cloak x-transition class="px-5 pb-5 sm:px-6 sm:pb-6">
 
-        <h4 class="font-semibold text-gray-900 dark:text-white text-sm mb-3">Paso previo: asociar el número de teléfono</h4>
+        <h4 class="font-semibold text-neutral-900 dark:text-white text-sm mb-3">Paso previo: asociar el número de teléfono</h4>
         <ol class="space-y-4 mb-8">
           <li class="flex gap-3">
             <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">1</span>
-            <span class="text-sm text-gray-600 dark:text-gray-300">Llame desde su teléfono móvil al <code class="code-inline">18808</code> para solicitar la asociación del número con su registro como arrendador.</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-300">Llame desde su teléfono móvil al <code class="code-inline">18808</code> para solicitar la asociación del número con su registro como arrendador.</span>
           </li>
           <li class="flex gap-3">
             <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">2</span>
-            <span class="text-sm text-gray-600 dark:text-gray-300">Espere la confirmación del registro — el proceso no se considera concluido hasta recibirla.</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-300">Espere la confirmación del registro — el proceso no se considera concluido hasta recibirla.</span>
           </li>
           <li class="flex gap-3">
             <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">3</span>
-            <span class="text-sm text-gray-600 dark:text-gray-300">Una vez habilitado el número, podrá usarlo para reportar mediante SMS.</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-300">Una vez habilitado el número, podrá usarlo para reportar mediante SMS.</span>
           </li>
         </ol>
 
-        <h4 class="font-semibold text-gray-900 dark:text-white text-sm mb-3">1. Reporte de un huésped extranjero</h4>
+        <h4 class="font-semibold text-neutral-900 dark:text-white text-sm mb-3">1. Reporte de un huésped extranjero</h4>
         <ol class="space-y-4 mb-8">
           <li class="flex gap-3">
             <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">1</span>
-            <span class="text-sm text-gray-600 dark:text-gray-300">Desde el número registrado como arrendador, envíe un SMS al <code class="code-inline">7344</code> con: <code class="code-inline">HC + pasaporte + días de estancia</code>. Ejemplo: <code class="code-inline">HCJ1459863 5</code>.</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-300">Desde el número registrado como arrendador, envíe un SMS al <code class="code-inline">7344</code> con: <code class="code-inline">HC + pasaporte + días de estancia</code>. Ejemplo: <code class="code-inline">HCJ1459863 5</code>.</span>
           </li>
           <li class="flex gap-3">
             <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">2</span>
-            <span class="text-sm text-gray-600 dark:text-gray-300">El sistema responde con nombre, ciudadanía y un código de confirmación.</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-300">El sistema responde con nombre, ciudadanía y un código de confirmación.</span>
           </li>
           <li class="flex gap-3">
             <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">3</span>
-            <span class="text-sm text-gray-600 dark:text-gray-300">Reenvíe el código recibido precedido por las siglas <code class="code-inline">HC</code>. Ejemplo: <code class="code-inline">HC2568</code>.</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-300">Reenvíe el código recibido precedido por las siglas <code class="code-inline">HC</code>. Ejemplo: <code class="code-inline">HC2568</code>.</span>
           </li>
           <li class="flex gap-3">
             <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">4</span>
-            <span class="text-sm text-gray-600 dark:text-gray-300">Confirmado, el sistema envía un código de registro que acredita que el reporte fue realizado.</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-300">Confirmado, el sistema envía un código de registro que acredita que el reporte fue realizado.</span>
           </li>
         </ol>
 
-        <h4 class="font-semibold text-gray-900 dark:text-white text-sm mb-3">2. Reporte de acompañantes</h4>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Cuando el huésped extranjero esté acompañado por una persona residente en Cuba, el reporte del acompañante se realiza después de confirmado el registro del huésped.</p>
+        <h4 class="font-semibold text-neutral-900 dark:text-white text-sm mb-3">2. Reporte de acompañantes</h4>
+        <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-3">Cuando el huésped extranjero esté acompañado por una persona residente en Cuba, el reporte del acompañante se realiza después de confirmado el registro del huésped.</p>
         <ol class="space-y-4">
           <li class="flex gap-3">
             <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">1</span>
-            <span class="text-sm text-gray-600 dark:text-gray-300">Desde el número registrado como arrendador, envíe un SMS al <code class="code-inline">7344</code> con: <code class="code-inline">HC + pasaporte del huésped + carné del acompañante + días</code>. Ejemplo: <code class="code-inline">HCJ1459863 89092120806 5</code>.</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-300">Desde el número registrado como arrendador, envíe un SMS al <code class="code-inline">7344</code> con: <code class="code-inline">HC + pasaporte del huésped + carné del acompañante + días</code>. Ejemplo: <code class="code-inline">HCJ1459863 89092120806 5</code>.</span>
           </li>
           <li class="flex gap-3">
             <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">2</span>
-            <span class="text-sm text-gray-600 dark:text-gray-300">Reciba el código de confirmación y reenvíelo precedido por <code class="code-inline">HC</code>.</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-300">Reciba el código de confirmación y reenvíelo precedido por <code class="code-inline">HC</code>.</span>
           </li>
           <li class="flex gap-3">
             <span class="w-7 h-7 shrink-0 rounded-full bg-clay text-white text-xs font-bold flex items-center justify-center">3</span>
-            <span class="text-sm text-gray-600 dark:text-gray-300">El sistema envía el código de registro correspondiente.</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-300">El sistema envía el código de registro correspondiente.</span>
           </li>
         </ol>
 
-        <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-700">
-          <h4 class="font-semibold text-gray-900 dark:text-white text-sm mb-2">Importante</h4>
-          <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-1.5 list-disc list-inside">
+        <div class="mt-8 pt-6 border-t border-neutral-100 dark:border-neutral-700">
+          <h4 class="font-semibold text-neutral-900 dark:text-white text-sm mb-2">Importante</h4>
+          <ul class="text-sm text-neutral-500 dark:text-neutral-400 space-y-1.5 list-disc list-inside">
             <li>Se realiza un registro independiente por cada huésped.</li>
             <li>El huésped principal debe registrarse antes que sus acompañantes.</li>
             <li>Las siglas <code class="code-inline">HC</code> deben colocarse antes de la información enviada por SMS.</li>
@@ -292,19 +292,19 @@
             <li>La solicitud de confirmación expira a las seis horas; pasado ese plazo debe iniciarse nuevamente el proceso.</li>
             <li>Si el SMS no respeta el formato establecido, el sistema puede no generar respuesta.</li>
           </ul>
-          <p class="text-xs text-gray-400 dark:text-gray-500 mt-4 leading-relaxed">Nota: el procedimiento SMS descrito fue diseñado para reportar huéspedes extranjeros identificados por pasaporte. Desde agosto de 2026, la obligación de información al MININT comprende también a personas residentes en el exterior — no hemos localizado información institucional reciente que detalle un formato de SMS específico para ciudadanos cubanos residentes en el exterior.</p>
+          <p class="text-xs text-neutral-400 dark:text-neutral-500 mt-4 leading-relaxed">Nota: el procedimiento SMS descrito fue diseñado para reportar huéspedes extranjeros identificados por pasaporte. Desde agosto de 2026, la obligación de información al MININT comprende también a personas residentes en el exterior — no hemos localizado información institucional reciente que detalle un formato de SMS específico para ciudadanos cubanos residentes en el exterior.</p>
         </div>
         </div>
       </div>
 
-      <p class="text-center text-xs text-gray-400 dark:text-gray-500 mt-8">El reporte al Ministerio del Interior no tiene tarifa administrativa establecida. 
+      <p class="text-center text-xs text-neutral-400 dark:text-neutral-500 mt-8">El reporte al Ministerio del Interior no tiene tarifa administrativa establecida. 
         <br>El Portal Caseros requiere acceso a internet; el reporte por SMS puede aplicar tarifas vigentes de ETECSA.</p>
 
       <!-- Opción 3 — CASERO.cu -->
       <div class="feature-card mt-8 border-2 border-clay/30 bg-clay/5 dark:bg-clay/10">
-        <h3 class="font-bold text-gray-900 dark:text-white mb-1">Opción 3. Con la app CASERO.cu</h3>
+        <h3 class="font-bold text-neutral-900 dark:text-white mb-1">Opción 3. Con la app CASERO.cu</h3>
         <p class="text-sm text-clay font-semibold mb-4">La forma más rápida — todo integrado, sin cambiar de app</p>
-        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">CASERO.cu reúne el reporte de huéspedes, la consulta de huéspedes activos y la gestión de tus contactos en una sola app, conectada directamente al Portal Caseros con tus propias credenciales. Sin formularios web desde el navegador ni pelear con el certificado del portal — todo desde el teléfono, en un par de toques.</p>
+        <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-4 leading-relaxed">CASERO.cu reúne el reporte de huéspedes, la consulta de huéspedes activos y la gestión de tus contactos en una sola app, conectada directamente al Portal Caseros con tus propias credenciales. Sin formularios web desde el navegador ni pelear con el certificado del portal — todo desde el teléfono, en un par de toques.</p>
         <button @click="notifyOpen = true"
           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-clay text-white text-sm font-semibold hover:opacity-90 transition-opacity">
           Avísame cuando esté lista
@@ -318,48 +318,87 @@
   ════════════════════════════════════════ -->
   <section id="funciones" class="py-20 px-4 sm:px-6 lg:px-8">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-14">Funciones</h2>
+      <h2 class="text-3xl font-bold text-center text-neutral-900 dark:text-white mb-14">Funciones</h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <div class="feature-card">
           <div class="feature-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg></div>
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-1.5">Registro de huéspedes</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Reporta directamente contra la API del portal, con la misma sesión y token que usaría tu navegador.</p>
+          <h3 class="font-semibold text-neutral-900 dark:text-white mb-1.5">Registro de huéspedes</h3>
+          <p class="text-sm text-neutral-500 dark:text-neutral-400">Reporta directamente contra la API del portal, con la misma sesión y token que usaría tu navegador.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-1.13a4 4 0 10-4-4 4 4 0 004 4zm6-4a4 4 0 11-8 0 4 4 0 018 0z" /></svg></div>
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-1.5">Huéspedes activos</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Consulta quién está registrado y activo, con sus acompañantes, sin tener que entrar al portal desde el navegador.</p>
+          <h3 class="font-semibold text-neutral-900 dark:text-white mb-1.5">Huéspedes activos</h3>
+          <p class="text-sm text-neutral-500 dark:text-neutral-400">Consulta quién está registrado y activo, con sus acompañantes, sin tener que entrar al portal desde el navegador.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></div>
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-1.5">Vías de contacto</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Gestiona los teléfonos y correos asociados a tu cuenta de arrendador.</p>
+          <h3 class="font-semibold text-neutral-900 dark:text-white mb-1.5">Vías de contacto</h3>
+          <p class="text-sm text-neutral-500 dark:text-neutral-400">Gestiona los teléfonos y correos asociados a tu cuenta de arrendador.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.04 11.04 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg></div>
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-1.5">
+          <h3 class="font-semibold text-neutral-900 dark:text-white mb-1.5">
             Códigos USSD / SMS
             <span class="badge-soon">Próximamente</span>
           </h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Reportar sin conexión a internet, por red telefónica — en espera de que se publique el código oficial de reporte.</p>
+          <p class="text-sm text-neutral-500 dark:text-neutral-400">Reportar sin conexión a internet, por red telefónica — en espera de que se publique el código oficial de reporte.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L15 12l-5.25-5" /><path stroke-linecap="round" stroke-linejoin="round" d="M4 6.5A2.5 2.5 0 016.5 4H20v16H6.5a2.5 2.5 0 010-5H20" /></svg></div>
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-1.5">iOS y Android</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Dos clientes nativos, uno por plataforma, con la misma funcionalidad y el mismo código de conducta.</p>
+          <h3 class="font-semibold text-neutral-900 dark:text-white mb-1.5">iOS y Android</h3>
+          <p class="text-sm text-neutral-500 dark:text-neutral-400">Dos clientes nativos, uno por plataforma, con la misma funcionalidad y el mismo código de conducta.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg></div>
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-1.5">Código abierto</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Licencia MIT en ambos repos — revisa exactamente qué hace la app con tus credenciales.</p>
+          <h3 class="font-semibold text-neutral-900 dark:text-white mb-1.5">Código abierto</h3>
+          <p class="text-sm text-neutral-500 dark:text-neutral-400">Licencia MIT en ambos repos — revisa exactamente qué hace la app con tus credenciales.</p>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       FAQ
+  ════════════════════════════════════════ -->
+  <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-50 dark:bg-neutral-900/40">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-3xl font-bold text-center text-neutral-900 dark:text-white mb-12">Preguntas frecuentes</h2>
+
+      <h3 class="text-lg font-semibold text-neutral-900 dark:text-white mb-4">Sobre la app</h3>
+      <div class="mb-12">
+        <template x-for="(faq, i) in faqsApp" :key="'app-' + i">
+          <div class="faq-item">
+            <button class="faq-question" @click="openFaqApp = openFaqApp === i ? null : i">
+              <span x-text="faq.q"></span>
+              <svg class="faq-chevron w-5 h-5 text-neutral-400" :class="{ open: openFaqApp === i }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="openFaqApp === i" x-cloak x-transition class="px-6 pb-5 text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed" x-html="faq.a"></div>
+          </div>
+        </template>
+      </div>
+
+      <h3 class="text-lg font-semibold text-neutral-900 dark:text-white mb-4">Sobre el reporte al MININT (legal)</h3>
+      <div>
+        <template x-for="(faq, i) in faqsLegal" :key="'legal-' + i">
+          <div class="faq-item">
+            <button class="faq-question" @click="openFaqLegal = openFaqLegal === i ? null : i">
+              <span x-text="faq.q"></span>
+              <svg class="faq-chevron w-5 h-5 text-neutral-400" :class="{ open: openFaqLegal === i }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="openFaqLegal === i" x-cloak x-transition class="px-6 pb-5 text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed" x-html="faq.a"></div>
+          </div>
+        </template>
       </div>
     </div>
   </section>
@@ -367,71 +406,33 @@
   <!-- ════════════════════════════════════════
        SEGURIDAD
   ════════════════════════════════════════ -->
-  <section id="seguridad" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/40">
+  <section id="seguridad" class="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-950 text-white">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Seguridad y aviso legal</h2>
-      <p class="text-center text-gray-500 dark:text-gray-400 mb-12">Lo que la app hace con tus datos, en términos simples.</p>
+      <h2 class="text-3xl font-bold text-center text-white mb-4">Seguridad y aviso legal</h2>
+      <p class="text-center text-neutral-400 mb-12">Lo que la app hace con tus datos, en términos simples.</p>
 
       <div class="space-y-6">
         <div class="flex gap-4">
           <div class="feature-icon shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg></div>
           <div>
-            <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Tu contraseña no se guarda</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Se usa solo para autenticar la sesión directamente contra <code class="code-inline">casero.rem.cu</code>. No queda guardada en el teléfono ni pasa por ningún servidor de CASERO.cu.</p>
+            <h3 class="font-semibold text-white mb-1">Tu contraseña no se guarda</h3>
+            <p class="text-sm text-neutral-400">Se usa solo para autenticar la sesión directamente contra <code class="code-inline">casero.rem.cu</code>. No queda guardada en el teléfono ni pasa por ningún servidor de CASERO.cu.</p>
           </div>
         </div>
         <div class="flex gap-4">
           <div class="feature-icon shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
           <div>
-            <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Certificate pinning, no un bypass genérico</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400">El portal sirve un certificado que no pasa la validación estándar del sistema. En vez de desactivar la seguridad TLS por completo, la app fija (<em>pinea</em>) el certificado real y conocido del propio portal.</p>
+            <h3 class="font-semibold text-white mb-1">Certificate pinning, no un bypass genérico</h3>
+            <p class="text-sm text-neutral-400">El portal sirve un certificado que no pasa la validación estándar del sistema. En vez de desactivar la seguridad TLS por completo, la app fija (<em>pinea</em>) el certificado real y conocido del propio portal.</p>
           </div>
         </div>
         <div class="flex gap-4">
           <div class="feature-icon shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg></div>
           <div>
-            <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Tú confirmas cada reporte</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400">La app no envía nada por su cuenta — tú introduces los datos del huésped y confirmas el envío, igual que harías manualmente en el navegador.</p>
+            <h3 class="font-semibold text-white mb-1">Tú confirmas cada reporte</h3>
+            <p class="text-sm text-neutral-400">La app no envía nada por su cuenta — tú introduces los datos del huésped y confirmas el envío, igual que harías manualmente en el navegador.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <!-- ════════════════════════════════════════
-       FAQ
-  ════════════════════════════════════════ -->
-  <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/40">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Preguntas frecuentes</h2>
-
-      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Sobre la app</h3>
-      <div class="mb-12">
-        <template x-for="(faq, i) in faqsApp" :key="'app-' + i">
-          <div class="faq-item">
-            <button class="faq-question" @click="openFaqApp = openFaqApp === i ? null : i">
-              <span x-text="faq.q"></span>
-              <svg class="faq-chevron w-5 h-5 text-gray-400" :class="{ open: openFaqApp === i }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div x-show="openFaqApp === i" x-cloak x-transition class="px-6 pb-5 text-sm text-gray-500 dark:text-gray-400 leading-relaxed" x-html="faq.a"></div>
-          </div>
-        </template>
-      </div>
-
-      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Sobre el reporte al MININT (legal)</h3>
-      <div>
-        <template x-for="(faq, i) in faqsLegal" :key="'legal-' + i">
-          <div class="faq-item">
-            <button class="faq-question" @click="openFaqLegal = openFaqLegal === i ? null : i">
-              <span x-text="faq.q"></span>
-              <svg class="faq-chevron w-5 h-5 text-gray-400" :class="{ open: openFaqLegal === i }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div x-show="openFaqLegal === i" x-cloak x-transition class="px-6 pb-5 text-sm text-gray-500 dark:text-gray-400 leading-relaxed" x-html="faq.a"></div>
-          </div>
-        </template>
       </div>
     </div>
   </section>
@@ -439,85 +440,85 @@
   <!-- ════════════════════════════════════════
        MÁS APPS
   ════════════════════════════════════════ -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/40">
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-neutral-50 dark:bg-neutral-900/40">
     <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Otras apps del mismo autor</h2>
-      <p class="text-gray-500 dark:text-gray-400 text-sm mb-8 leading-relaxed max-w-xl mx-auto">Si te sirvió CASERO.cu, estas otras apps también te pueden interesar.</p>
+      <h2 class="text-xl font-semibold text-neutral-900 dark:text-white mb-2">Otras apps del mismo autor</h2>
+      <p class="text-neutral-500 dark:text-neutral-400 text-sm mb-8 leading-relaxed max-w-xl mx-auto">Si te sirvió CASERO.cu, estas otras apps también te pueden interesar.</p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
         <!-- Banca Remota -->
         <a href="https://bancaremota.vercel.app/?utm_source=casero-cu&utm_medium=web&utm_campaign=similar_apps" target="_blank" rel="noopener"
-          class="flex flex-col justify-between bg-white dark:bg-gray-800 rounded-2xl p-5 sm:p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group">
+          class="flex flex-col justify-between bg-white dark:bg-neutral-800 rounded-2xl p-5 sm:p-6 border border-neutral-100 dark:border-neutral-700 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group">
           <div>
             <div class="flex items-start justify-between mb-4">
               <img src="assets/apps/bancaremota-dark.png" alt="Banca Remota" class="w-14 h-14 rounded-2xl shadow-sm flex-shrink-0 dark:hidden" />
               <img src="assets/apps/bancaremota-light.png" alt="Banca Remota" class="w-14 h-14 rounded-2xl shadow-sm flex-shrink-0 hidden dark:block" />
-              <span class="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-700/60 flex items-center justify-center text-gray-400 group-hover:text-clay group-hover:bg-clay/10 transition-colors flex-shrink-0">
+              <span class="w-8 h-8 rounded-full bg-neutral-50 dark:bg-neutral-700/60 flex items-center justify-center text-neutral-400 group-hover:text-clay group-hover:bg-clay/10 transition-colors flex-shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                 </svg>
               </span>
             </div>
             <div class="flex items-center justify-between gap-2 flex-wrap mb-1.5">
-              <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-clay transition-colors text-lg">Banca Remota</h3>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-semibold bg-gray-100 dark:bg-gray-700/80 text-gray-700 dark:text-gray-300 border border-gray-200/80 dark:border-gray-600/60" title="Disponible para iOS">
+              <h3 class="font-bold text-neutral-900 dark:text-white group-hover:text-clay transition-colors text-lg">Banca Remota</h3>
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-semibold bg-neutral-100 dark:bg-neutral-700/80 text-neutral-700 dark:text-neutral-300 border border-neutral-200/80 dark:border-neutral-600/60" title="Disponible para iOS">
                 <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.78 1.06-1.85.94-2.94-.92.04-2.03.62-2.69 1.39-.58.67-1.09 1.76-.95 2.82 1.03.08 2.07-.49 2.7-1.27z"/></svg>
                 <span>iOS</span>
               </span>
             </div>
-            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">App nativa para iPhone que simplifica las operaciones bancarias cubanas mediante USSD. Sin internet.</p>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">App nativa para iPhone que simplifica las operaciones bancarias cubanas mediante USSD. Sin internet.</p>
           </div>
         </a>
         <!-- Qvacell -->
         <a href="https://qvacell.vercel.app/?utm_source=casero-cu&utm_medium=web&utm_campaign=similar_apps" target="_blank" rel="noopener"
-          class="flex flex-col justify-between bg-white dark:bg-gray-800 rounded-2xl p-5 sm:p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group">
+          class="flex flex-col justify-between bg-white dark:bg-neutral-800 rounded-2xl p-5 sm:p-6 border border-neutral-100 dark:border-neutral-700 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group">
           <div>
             <div class="flex items-start justify-between mb-4">
               <img src="assets/apps/qvacell-dark.png" alt="Qvacell" class="w-14 h-14 rounded-2xl shadow-sm flex-shrink-0 dark:hidden" />
               <img src="assets/apps/qvacell-light.png" alt="Qvacell" class="w-14 h-14 rounded-2xl shadow-sm flex-shrink-0 hidden dark:block" />
-              <span class="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-700/60 flex items-center justify-center text-gray-400 group-hover:text-clay group-hover:bg-clay/10 transition-colors flex-shrink-0">
+              <span class="w-8 h-8 rounded-full bg-neutral-50 dark:bg-neutral-700/60 flex items-center justify-center text-neutral-400 group-hover:text-clay group-hover:bg-clay/10 transition-colors flex-shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                 </svg>
               </span>
             </div>
             <div class="flex items-center justify-between gap-2 flex-wrap mb-1.5">
-              <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-clay transition-colors text-lg">Qvacell</h3>
+              <h3 class="font-bold text-neutral-900 dark:text-white group-hover:text-clay transition-colors text-lg">Qvacell</h3>
               <div class="flex items-center gap-1.5">
-                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-semibold bg-gray-100 dark:bg-gray-700/80 text-gray-700 dark:text-gray-300 border border-gray-200/80 dark:border-gray-600/60" title="Disponible para iOS">
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-semibold bg-neutral-100 dark:bg-neutral-700/80 text-neutral-700 dark:text-neutral-300 border border-neutral-200/80 dark:border-neutral-600/60" title="Disponible para iOS">
                   <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.78 1.06-1.85.94-2.94-.92.04-2.03.62-2.69 1.39-.58.67-1.09 1.76-.95 2.82 1.03.08 2.07-.49 2.7-1.27z"/></svg>
                   <span>iOS</span>
                 </span>
-                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-semibold bg-gray-100 dark:bg-gray-700/80 text-gray-700 dark:text-gray-300 border border-gray-200/80 dark:border-gray-600/60" title="Disponible para Android">
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-semibold bg-neutral-100 dark:bg-neutral-700/80 text-neutral-700 dark:text-neutral-300 border border-neutral-200/80 dark:border-neutral-600/60" title="Disponible para Android">
                   <svg class="w-3 h-3 fill-current text-[#34A853] dark:text-[#3DDC84]" viewBox="0 0 24 24"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9992.4482.9992.9993.0001.5511-.4482.9997-.9992.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.411 13.8567 8.08 12 8.08s-3.5902.331-5.1367.87l-2.0224-3.503a.4163.4163 0 00-.5676-.1521.416.416 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/></svg>
                   <span>Android</span>
                 </span>
               </div>
             </div>
-            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">Consulta el saldo de tu tarjeta de datos y celular cubana, sin necesidad de internet.</p>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">Consulta el saldo de tu tarjeta de datos y celular cubana, sin necesidad de internet.</p>
           </div>
         </a>
         <!-- LlamaCon99 -->
         <a href="https://llama99.vercel.app/?utm_source=casero-cu&utm_medium=web&utm_campaign=similar_apps" target="_blank" rel="noopener"
-          class="flex flex-col justify-between bg-white dark:bg-gray-800 rounded-2xl p-5 sm:p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group">
+          class="flex flex-col justify-between bg-white dark:bg-neutral-800 rounded-2xl p-5 sm:p-6 border border-neutral-100 dark:border-neutral-700 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group">
           <div>
             <div class="flex items-start justify-between mb-4">
               <img src="assets/apps/llama99-dark.png" alt="LlamaCon99" class="w-14 h-14 rounded-2xl shadow-sm flex-shrink-0 dark:hidden" />
               <img src="assets/apps/llama99-light.png" alt="LlamaCon99" class="w-14 h-14 rounded-2xl shadow-sm flex-shrink-0 hidden dark:block" />
-              <span class="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-700/60 flex items-center justify-center text-gray-400 group-hover:text-clay group-hover:bg-clay/10 transition-colors flex-shrink-0">
+              <span class="w-8 h-8 rounded-full bg-neutral-50 dark:bg-neutral-700/60 flex items-center justify-center text-neutral-400 group-hover:text-clay group-hover:bg-clay/10 transition-colors flex-shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                 </svg>
               </span>
             </div>
             <div class="flex items-center justify-between gap-2 flex-wrap mb-1.5">
-              <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-clay transition-colors text-lg">Llama *99</h3>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-semibold bg-gray-100 dark:bg-gray-700/80 text-gray-700 dark:text-gray-300 border border-gray-200/80 dark:border-gray-600/60" title="Disponible para iOS">
+              <h3 class="font-bold text-neutral-900 dark:text-white group-hover:text-clay transition-colors text-lg">Llama *99</h3>
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-semibold bg-neutral-100 dark:bg-neutral-700/80 text-neutral-700 dark:text-neutral-300 border border-neutral-200/80 dark:border-neutral-600/60" title="Disponible para iOS">
                 <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.78 1.06-1.85.94-2.94-.92.04-2.03.62-2.69 1.39-.58.67-1.09 1.76-.95 2.82 1.03.08 2.07-.49 2.7-1.27z"/></svg>
                 <span>iOS</span>
               </span>
             </div>
-            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">Agrega automáticamente el prefijo *99 a tus llamadas, sin modificar tus contactos.</p>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">Agrega automáticamente el prefijo *99 a tus llamadas, sin modificar tus contactos.</p>
           </div>
         </a>
       </div>
@@ -527,7 +528,7 @@
   <!-- ════════════════════════════════════════
        NOTIFY CTA
   ════════════════════════════════════════ -->
-  <section id="notify-section" class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/40">
+  <section id="notify-section" class="py-16 px-4 sm:px-6 lg:px-8 bg-neutral-50 dark:bg-neutral-900/40">
     <div class="max-w-lg mx-auto text-center">
 
       <div class="flex justify-center mb-6">
@@ -540,8 +541,8 @@
         Pronto en tiendas
       </div>
 
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Avísame cuando esté lista</h2>
-      <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 leading-relaxed">La app está en fase beta y próximamente estará disponible en App Store y Play Store. Déjanos tu correo y te avisamos en cuanto se publique.</p>
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-white mb-2">Avísame cuando esté lista</h2>
+      <p class="text-neutral-500 dark:text-neutral-400 text-sm mb-6 leading-relaxed">La app está en fase beta y próximamente estará disponible en App Store y Play Store. Déjanos tu correo y te avisamos en cuanto se publique.</p>
 
       <div class="flex justify-center mb-8">
         <button @click="notifyOpen = true"
@@ -554,7 +555,7 @@
         </button>
       </div>
 
-      <div class="text-sm text-gray-500 dark:text-gray-400">
+      <div class="text-sm text-neutral-500 dark:text-neutral-400">
         Código fuente en GitHub &nbsp;
         <br>
         <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="hover:text-clay transition-colors font-medium underline underline-offset-2">iOS</a>
@@ -568,7 +569,7 @@
        FOOTER
   ════════════════════════════════════════ -->
   <footer
-    class="bg-gray-50 dark:bg-gray-950 text-gray-600 dark:text-gray-400 py-16 px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
+    class="bg-neutral-50 dark:bg-neutral-950 text-neutral-600 dark:text-neutral-400 py-16 px-4 sm:px-6 lg:px-8 border-t border-neutral-200 dark:border-neutral-800 transition-colors duration-300">
     <div class="max-w-6xl mx-auto">
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
@@ -577,23 +578,23 @@
           <div class="flex items-center gap-2 mb-4">
             <img src="assets/icon/icon-dark.png" alt="CASERO.cu" class="w-8 h-8 rounded-lg shadow-sm dark:hidden" />
             <img src="assets/icon/icon-light.png" alt="CASERO.cu" class="w-8 h-8 rounded-lg shadow-sm hidden dark:block" />
-            <span class="text-gray-900 dark:text-white font-bold text-lg">CASERO.cu</span>
+            <span class="text-neutral-900 dark:text-white font-bold text-lg">CASERO.cu</span>
           </div>
-          <p class="text-sm leading-relaxed mb-4 text-gray-500 dark:text-gray-400">Cliente no oficial para que arrendadores en Cuba reporten huéspedes al portal <code class="code-inline">casero.rem.cu</code>.</p>
+          <p class="text-sm leading-relaxed mb-4 text-neutral-500 dark:text-neutral-400">Cliente no oficial para que arrendadores en Cuba reporten huéspedes al portal <code class="code-inline">casero.rem.cu</code>.</p>
         </div>
 
         <div>
-          <h4 class="text-gray-900 dark:text-white font-semibold mb-4 text-sm">Navegación</h4>
+          <h4 class="text-neutral-900 dark:text-white font-semibold mb-4 text-sm">Navegación</h4>
           <ul class="space-y-2 text-sm">
             <li><a href="#portal" class="footer-link">Cómo reportar</a></li>
             <li><a href="#funciones" class="footer-link">Funciones</a></li>
-            <li><a href="#seguridad" class="footer-link">Seguridad</a></li>
             <li><a href="#faq" class="footer-link">FAQ</a></li>
+            <li><a href="#seguridad" class="footer-link">Seguridad</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="text-gray-900 dark:text-white font-semibold mb-4 text-sm">Legal</h4>
+          <h4 class="text-neutral-900 dark:text-white font-semibold mb-4 text-sm">Legal</h4>
           <ul class="space-y-2 text-sm">
             <li><a href="/privacy.html" class="footer-link">Política de Privacidad</a></li>
             <li><a href="/terms.html" class="footer-link">Términos y Condiciones</a></li>
@@ -602,7 +603,7 @@
         </div>
 
         <div>
-          <h4 class="text-gray-900 dark:text-white font-semibold mb-4 text-sm">Fuentes</h4>
+          <h4 class="text-neutral-900 dark:text-white font-semibold mb-4 text-sm">Fuentes</h4>
           <ul class="space-y-2 text-sm">
             <li><a href="https://cubatramite.com/reporte-a-inmigracion-del-registro-de-turistas-extranjeros-hospedados-en-viviendas-de-alquiler/" target="_blank" rel="noopener" class="footer-link">CubaTramite</a></li>
             <li><a href="https://www.directoriocubano.com/tramites/reporte-huespedes-extranjeros-viviendas-alquiler/" target="_blank" rel="noopener" class="footer-link">Directorio Cubano</a></li>
@@ -611,7 +612,7 @@
         </div>
 
         <div>
-          <h4 class="text-gray-900 dark:text-white font-semibold mb-4 text-sm">Comunidad</h4>
+          <h4 class="text-neutral-900 dark:text-white font-semibold mb-4 text-sm">Comunidad</h4>
           <ul class="space-y-2 text-sm">
             <li>
               <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="footer-link flex items-center gap-2">
@@ -631,12 +632,12 @@
       </div>
 
       <div
-        class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-600 dark:text-gray-600">
+        class="border-t border-neutral-200 dark:border-neutral-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-600 dark:text-neutral-600">
         <p>© <span x-text="new Date().getFullYear()">2026</span> Alberto Licea. Proyecto independiente — no afiliado a CIDP-MININT.</p>
         <div class="flex gap-4 items-center">
           <a href="https://github.com/albertolicea00/casero.cu-ios/blob/main/LICENSE" target="_blank" rel="noopener"
             class="hover:text-clay transition-colors">MIT License</a>
-          <span class="text-gray-800">·</span>
+          <span class="text-neutral-800">·</span>
           <span>iOS · Android · Código abierto</span>
         </div>
       </div>
@@ -658,17 +659,17 @@
       x-transition:enter-end="opacity-100 translate-y-0 scale-100" x-transition:leave="transition ease-in duration-150"
       x-transition:leave-start="opacity-100 translate-y-0 scale-100"
       x-transition:leave-end="opacity-0 translate-y-full sm:translate-y-2 scale-100 sm:scale-95"
-      class="relative w-full sm:max-w-md bg-white dark:bg-gray-900 rounded-t-3xl sm:rounded-2xl shadow-2xl overflow-hidden"
+      class="relative w-full sm:max-w-md bg-white dark:bg-neutral-900 rounded-t-3xl sm:rounded-2xl shadow-2xl overflow-hidden"
       @keydown.escape.window="notifyOpen = false" x-data="notifyForm()">
 
       <div class="h-1 bg-clay"></div>
 
       <div class="sm:hidden flex justify-center pt-3 pb-1" aria-hidden="true">
-        <span class="w-10 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+        <span class="w-10 h-1.5 rounded-full bg-neutral-300 dark:bg-neutral-700"></span>
       </div>
 
       <button @click="notifyOpen = false"
-        class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-500 dark:text-gray-400">
+        class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors text-neutral-500 dark:text-neutral-400">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
@@ -680,13 +681,13 @@
           Pronto en tiendas
         </div>
 
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Avísame cuando esté lista</h2>
-        <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 leading-relaxed">La app está en beta. Déjanos tu correo
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-white mb-2">Avísame cuando esté lista</h2>
+        <p class="text-neutral-500 dark:text-neutral-400 text-sm mb-6 leading-relaxed">La app está en beta. Déjanos tu correo
           y serás el primero en saber cuando esté disponible en las tiendas oficiales.</p>
 
         <form @submit.prevent="submit">
           <input x-model="email" type="email" required placeholder="tucorreo@ejemplo.com" :disabled="loading || sent"
-            class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-white/10 border border-gray-200 dark:border-white/15 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-clay disabled:opacity-50 transition mb-3" />
+            class="w-full px-4 py-3 rounded-xl bg-neutral-50 dark:bg-white/10 border border-neutral-200 dark:border-white/15 text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-clay disabled:opacity-50 transition mb-3" />
           <button type="submit" :disabled="loading || sent"
             class="w-full px-6 py-3 bg-clay hover:brightness-110 text-white font-bold rounded-xl transition-all disabled:opacity-60 flex items-center justify-center gap-2 shadow shadow-clay/30">
             <span x-show="!loading && !sent" class="flex items-center gap-2">
@@ -703,21 +704,21 @@
         <p x-show="sent" x-transition class="text-clay text-xs mt-2 font-medium">¡Suscrito! Te avisaremos en cuanto la app esté en las tiendas oficiales.</p>
 
         <div class="flex items-center gap-3 my-5">
-          <div class="flex-1 h-px bg-gray-200 dark:bg-white/10"></div>
-          <span class="text-xs text-gray-400 dark:text-gray-500">o sigue el proyecto</span>
-          <div class="flex-1 h-px bg-gray-200 dark:bg-white/10"></div>
+          <div class="flex-1 h-px bg-neutral-200 dark:bg-white/10"></div>
+          <span class="text-xs text-neutral-400 dark:text-neutral-500">o sigue el proyecto</span>
+          <div class="flex-1 h-px bg-neutral-200 dark:bg-white/10"></div>
         </div>
 
         <div class="grid grid-cols-2 gap-3">
           <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener"
-            class="w-full inline-flex items-center justify-center gap-2 bg-gray-900 dark:bg-white/10 hover:bg-gray-800 dark:hover:bg-white/20 text-white font-semibold px-4 py-2.5 rounded-xl transition-all text-sm">
+            class="w-full inline-flex items-center justify-center gap-2 bg-neutral-900 dark:bg-white/10 hover:bg-neutral-800 dark:hover:bg-white/20 text-white font-semibold px-4 py-2.5 rounded-xl transition-all text-sm">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
             </svg>
             GitHub (iOS)
           </a>
           <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener"
-            class="w-full inline-flex items-center justify-center gap-2 bg-gray-900 dark:bg-white/10 hover:bg-gray-800 dark:hover:bg-white/20 text-white font-semibold px-4 py-2.5 rounded-xl transition-all text-sm">
+            class="w-full inline-flex items-center justify-center gap-2 bg-neutral-900 dark:bg-white/10 hover:bg-neutral-800 dark:hover:bg-white/20 text-white font-semibold px-4 py-2.5 rounded-xl transition-all text-sm">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
             </svg>
