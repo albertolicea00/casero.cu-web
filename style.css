@@ -8,6 +8,8 @@
 html { scroll-behavior: smooth; }
 body { overflow-x: hidden; }
 
+[x-cloak] { display: none !important; }
+
 /* Global scrollbar */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: transparent; }
