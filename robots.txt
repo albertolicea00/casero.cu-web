@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /privacy.html
+Disallow: /terms.html
+Disallow: /eula.html
+
+Sitemap: https://casero-cu.vercel.app/sitemap.xml
