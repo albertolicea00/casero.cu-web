@@ -325,7 +325,7 @@
   <!-- ════════════════════════════════════════
        FUNCIONES
   ════════════════════════════════════════ -->
-  <section id="funciones" class="py-20 px-4 sm:px-6 lg:px-8">
+  <section id="funciones" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-neutral-200 dark:border-neutral-800">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-3xl font-bold text-center text-neutral-900 dark:text-white mb-4">Funciones</h2>
       <p class="text-center text-neutral-500 dark:text-neutral-400 mb-14 max-w-xl mx-auto">Tres funciones básicas. Lo justo para hacer el trabajo bien.</p>
@@ -355,7 +355,7 @@
   <!-- ════════════════════════════════════════
        FAQ
   ════════════════════════════════════════ -->
-  <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-50 dark:bg-neutral-900/40">
+  <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-50 dark:bg-neutral-900/40 border-t border-neutral-200 dark:border-neutral-800">
     <div class="max-w-2xl mx-auto">
       <h2 class="text-3xl font-bold text-center text-neutral-900 dark:text-white mb-12">Preguntas frecuentes</h2>
 
@@ -394,7 +394,7 @@
   <!-- ════════════════════════════════════════
        SEGURIDAD
   ════════════════════════════════════════ -->
-  <section id="seguridad" class="py-20 px-4 sm:px-6 lg:px-8 dark:bg-neutral-950">
+  <section id="seguridad" class="py-20 px-4 sm:px-6 lg:px-8 dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-800">
     <div class="max-w-3xl mx-auto">
       <h2 class="text-3xl font-bold text-center text-neutral-900 dark:text-white mb-4">Seguridad y aviso legal</h2>
       <p class="text-center text-neutral-500 dark:text-neutral-400 mb-12">Lo que la app hace con tus datos, en términos simples.</p>
@@ -426,9 +426,49 @@
   </section>
 
   <!-- ════════════════════════════════════════
+       NOTIFY CTA
+  ════════════════════════════════════════ -->
+  <section id="notify-section" class="py-16 px-4 sm:px-6 lg:px-8 bg-neutral-50 dark:bg-neutral-900/40 border-t border-neutral-200 dark:border-neutral-800">
+    <div class="max-w-lg mx-auto text-center">
+
+      <div class="flex justify-center mb-6">
+        <img src="assets/icon/icon-dark.png" alt="CASERO.cu" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl shadow-sm dark:hidden" />
+        <img src="assets/icon/icon-light.png" alt="CASERO.cu" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl shadow-sm hidden dark:block" />
+      </div>
+
+      <div class="inline-flex items-center gap-2 text-clay text-xs font-semibold uppercase tracking-widest rounded-full px-4 py-1.5 mb-5">
+        <span class="w-2 h-2 rounded-full bg-clay animate-pulse"></span>
+        Pronto en tiendas
+      </div>
+
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-white mb-2">Avísame cuando esté lista</h2>
+      <p class="text-neutral-500 dark:text-neutral-400 text-sm mb-6 leading-relaxed">La app está en fase beta y próximamente estará disponible en App Store y Play Store. Déjanos tu correo y te avisamos en cuanto se publique.</p>
+
+      <div class="flex justify-center mb-8">
+        <button @click="notifyOpen = true"
+          class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl bg-clay text-white font-semibold hover:opacity-90 transition-opacity">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+          </svg>
+          Notifícame
+        </button>
+      </div>
+
+      <div class="text-sm text-neutral-500 dark:text-neutral-400">
+        Código fuente en GitHub &nbsp;
+        <br>
+        <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="hover:text-clay transition-colors font-medium underline underline-offset-2">iOS</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener" class="hover:text-clay transition-colors font-medium underline underline-offset-2">Android</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
        MÁS APPS
   ════════════════════════════════════════ -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-neutral-50 dark:bg-neutral-900/40">
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-neutral-50 dark:bg-neutral-900/40 border-t border-neutral-200 dark:border-neutral-800">
     <div class="max-w-5xl mx-auto text-center">
       <h2 class="text-xl font-semibold text-neutral-900 dark:text-white mb-2">Otras apps del mismo autor</h2>
       <p class="text-neutral-500 dark:text-neutral-400 text-sm mb-8 leading-relaxed max-w-xl mx-auto">Si te sirvió CASERO.cu, estas otras apps también te pueden interesar.</p>
@@ -509,46 +549,6 @@
             <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">Agrega automáticamente el prefijo *99 a tus llamadas, sin modificar tus contactos.</p>
           </div>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════
-       NOTIFY CTA
-  ════════════════════════════════════════ -->
-  <section id="notify-section" class="py-16 px-4 sm:px-6 lg:px-8 bg-neutral-50 dark:bg-neutral-900/40">
-    <div class="max-w-lg mx-auto text-center">
-
-      <div class="flex justify-center mb-6">
-        <img src="assets/icon/icon-dark.png" alt="CASERO.cu" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl shadow-sm dark:hidden" />
-        <img src="assets/icon/icon-light.png" alt="CASERO.cu" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl shadow-sm hidden dark:block" />
-      </div>
-
-      <div class="inline-flex items-center gap-2 text-clay text-xs font-semibold uppercase tracking-widest rounded-full px-4 py-1.5 mb-5">
-        <span class="w-2 h-2 rounded-full bg-clay animate-pulse"></span>
-        Pronto en tiendas
-      </div>
-
-      <h2 class="text-2xl font-bold text-neutral-900 dark:text-white mb-2">Avísame cuando esté lista</h2>
-      <p class="text-neutral-500 dark:text-neutral-400 text-sm mb-6 leading-relaxed">La app está en fase beta y próximamente estará disponible en App Store y Play Store. Déjanos tu correo y te avisamos en cuanto se publique.</p>
-
-      <div class="flex justify-center mb-8">
-        <button @click="notifyOpen = true"
-          class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl bg-clay text-white font-semibold hover:opacity-90 transition-opacity">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-          </svg>
-          Notifícame
-        </button>
-      </div>
-
-      <div class="text-sm text-neutral-500 dark:text-neutral-400">
-        Código fuente en GitHub &nbsp;
-        <br>
-        <a href="https://github.com/albertolicea00/casero.cu-ios" target="_blank" rel="noopener" class="hover:text-clay transition-colors font-medium underline underline-offset-2">iOS</a>
-        &nbsp;·&nbsp;
-        <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener" class="hover:text-clay transition-colors font-medium underline underline-offset-2">Android</a>
       </div>
     </div>
   </section>
