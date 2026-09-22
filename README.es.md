@@ -15,6 +15,26 @@ Cliente y plataforma web para CASERO.cu. 🇨🇺
 
 <!-- TODO -->
 
+## 🔐 Certificado pineado (`casero.rem.cu`)
+
+El portal sirve un certificado autofirmado (emisor: `CSIC P-Services CA`) que
+falla la validación estándar de cadena. Los clientes nativos (iOS, Android)
+pinean contra una copia local de este certificado en vez de confiar en
+cualquier CA. `casero.rem.cu` solo es alcanzable desde dentro de Cuba, así que
+el certificado hay que obtenerlo desde una red que sí llegue a él.
+
+```bash
+scripts/fetch-casero-cert.sh
+```
+
+Esto guarda `casero_rem_cu.cer` (formato DER) en el directorio actual e
+imprime su subject/issuer/fechas de validez. Copia ese archivo a los recursos
+del cliente correspondiente (ej. `casero-cu-ios/Resources/casero_rem_cu.cer`)
+y asegúrate de agregarlo al Resources build phase del target de la app.
+
+El certificado vence — revisa `notAfter` y vuelve a correr el script para
+renovarlo antes de que expire.
+
 ## 📦 Repositorios Relacionados
 
 - [casero.cu-ios](https://github.com/albertolicea00/casero.cu-ios) — Cliente nativo iOS (Swift / SwiftUI)

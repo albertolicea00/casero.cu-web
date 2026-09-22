@@ -17,6 +17,26 @@ Web client & platform for CASERO.cu. 🇨🇺
 
 <!-- TODO -->
 
+## 🔐 Pinned certificate (`casero.rem.cu`)
+
+The portal serves a self-signed certificate (issuer: `CSIC P-Services CA`) that
+fails standard chain validation. The native clients (iOS, Android) pin against
+a bundled copy of this certificate instead of trusting any CA. `casero.rem.cu`
+is only reachable from inside Cuba, so the certificate has to be fetched from
+a network that can actually reach it.
+
+```bash
+scripts/fetch-casero-cert.sh
+```
+
+This saves `casero_rem_cu.cer` (DER format) in the current directory and
+prints its subject/issuer/validity dates. Copy that file into the client
+repo's resources (e.g. `casero-cu-ios/Resources/casero_rem_cu.cer`) and make
+sure it's added to the app target's Resources build phase.
+
+The certificate expires — check `notAfter` and re-run the script to renew
+before it does.
+
 ## 📦 Related Repositories
 
 - [casero.cu-ios](https://github.com/albertolicea00/casero.cu-ios) — Native iOS client (Swift / SwiftUI)
