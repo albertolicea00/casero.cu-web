@@ -722,11 +722,20 @@
       x-transition:leave-start="opacity-100 translate-y-0 scale-100"
       x-transition:leave-end="opacity-0 translate-y-full sm:translate-y-2 scale-100 sm:scale-95"
       class="relative w-full sm:max-w-md bg-white dark:bg-neutral-900 rounded-t-3xl sm:rounded-2xl shadow-2xl overflow-hidden"
-      @keydown.escape.window="notifyOpen = false" x-data="notifyForm()">
+      :style="(dragging || snapping) ? `transform: translateY(${dragY}px); transition: ${dragging ? 'none' : 'transform 150ms ease-out'}` : ''"
+      @keydown.escape.window="notifyOpen = false" x-data="{ ...notifyForm(), dragY: 0, dragging: false, snapping: false, dragStartY: 0 }">
 
       <div class="h-1 bg-clay"></div>
 
-      <div class="sm:hidden flex justify-center pt-3 pb-1" aria-hidden="true">
+      <div class="sm:hidden flex justify-center pt-3 pb-2 -mb-1" style="touch-action:none;"
+        @pointerdown="dragging = true; dragStartY = $event.clientY"
+        @pointermove.window="if (dragging) dragY = Math.max(0, $event.clientY - dragStartY)"
+        @pointerup.window="if (dragging) {
+          dragging = false;
+          if (dragY > 80) { notifyOpen = false; dragY = 0; }
+          else { snapping = true; dragY = 0; setTimeout(() => snapping = false, 160); }
+        }"
+        @pointercancel.window="if (dragging) { dragging = false; snapping = true; dragY = 0; setTimeout(() => snapping = false, 160); }">
         <span class="w-10 h-1.5 rounded-full bg-neutral-300 dark:bg-neutral-700"></span>
       </div>
 
