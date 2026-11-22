@@ -4,8 +4,7 @@ function app() {
     notifyOpen: false,
     openFaqApp: null,
     openFaqLegal: null,
-    starsIOS: null,
-    starsAndroid: null,
+    stars: null,
     darkMode: localStorage.getItem('darkMode') === 'true' ||
       (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches),
     faqsApp: [
@@ -88,13 +87,9 @@ function app() {
         }
       });
       window.addEventListener('notify:open', () => { this.notifyOpen = true; });
-      fetch('https://api.github.com/repos/albertolicea00/casero.cu-ios')
+      fetch('https://api.github.com/repos/albertolicea00/casero.cu')
         .then(r => r.json())
-        .then(d => { if (d.stargazers_count !== undefined) this.starsIOS = d.stargazers_count; })
-        .catch(() => {});
-      fetch('https://api.github.com/repos/albertolicea00/casero.cu-apk')
-        .then(r => r.json())
-        .then(d => { if (d.stargazers_count !== undefined) this.starsAndroid = d.stargazers_count; })
+        .then(d => { if (d.stargazers_count !== undefined) this.stars = d.stargazers_count; })
         .catch(() => {});
     }
   }

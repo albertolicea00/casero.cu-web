@@ -1,8 +1,7 @@
 # 🏠 CASERO.cu — Web
 Web client & platform for CASERO.cu. 🇨🇺
 
-[![Android Stars](https://img.shields.io/github/stars/albertolicea00/BancaRemota?style=flat&logo=android&label=Android%20Stars&color=B38B4D)](https://github.com/albertolicea00/casero.cu-apk)
-[![iOS Stars](https://img.shields.io/github/stars/albertolicea00/BancaRemota?style=flat&logo=apple&label=iOS%20Stars&color=B38B4D)](https://github.com/albertolicea00/casero.cu-ios)
+[![GitHub Stars](https://img.shields.io/github/stars/albertolicea00/casero.cu?style=flat&logo=github&label=Stars&color=B38B4D)](https://github.com/albertolicea00/casero.cu)
 ![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat&logo=html5&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
 ![Alpine.js](https://img.shields.io/badge/Alpine.js-8BC0D0?style=flat&logo=alpinedotjs&logoColor=white)
@@ -39,8 +38,7 @@ before it does.
 
 ## 📦 Related Repositories
 
-- [casero.cu-ios](https://github.com/albertolicea00/casero.cu-ios) — Native iOS client (Swift / SwiftUI)
-- [casero.cu-apk](https://github.com/albertolicea00/casero.cu-apk) — Native Android client (Kotlin)
+- [casero.cu](https://github.com/albertolicea00/casero.cu) — Mobile app for iOS & Android (Kotlin Multiplatform)
 - [casero.cu-web](https://github.com/albertolicea00/casero.cu-web) — Web client (this repo)
 
 ## 📄 License
