@@ -6,7 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Política de Privacidad — CASERO.cu</title>
-  <meta name="description" content="Política de privacidad de CASERO.cu: qué pasa con tus credenciales del portal, los datos de tus huéspedes, y con quién se comparten." />
+  <meta name="description" content="Política de privacidad de CASERO.cu: qué guarda la app en tu teléfono, qué se envía al portal oficial, qué usa el sitio web y el marco legal cubano aplicable." />
   <meta name="theme-color" content="#7F2157" />
   <link rel="icon" type="image/svg+xml" href="assets/icon/icon-rounded.svg" />
   <meta name="robots" content="noindex" />
@@ -70,7 +70,7 @@
   <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
     <p class="text-xs font-semibold tracking-wide text-clay uppercase mb-2">Legal</p>
     <h1 class="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-white mb-3">Política de Privacidad</h1>
-    <p class="text-sm text-neutral-500 dark:text-neutral-500 mb-2">Última actualización: 13 de septiembre de 2026.</p>
+    <p class="text-sm text-neutral-500 dark:text-neutral-500 mb-2">Última actualización: 22 de noviembre de 2026.</p>
     <div class="flex gap-4 text-sm mb-10">
       <a href="terms.html" class="footer-link underline">Términos y Condiciones</a>
       <span class="text-neutral-300 dark:text-neutral-700">·</span>
@@ -78,40 +78,111 @@
     </div>
 
     <div class="legal-content">
-      <p>CASERO.cu es un proyecto personal y de código abierto, sin empresa detrás ni fines comerciales, y sin ninguna afiliación con CIDP-MININT ni entidad gubernamental alguna. Esta política aplica al sitio web y a las apps nativas para iPhone y Android.</p>
+      <p>CASERO.cu es un proyecto personal y de código abierto, sin empresa detrás ni fines comerciales. <strong>No es oficial</strong> y no tiene ninguna afiliación con CIDP-MININT ni con entidad gubernamental alguna. Esta política aplica a este sitio web y a las apps nativas para iPhone y Android. Los detalles técnicos de la sección 3 describen la app para iPhone; los de Android están en <a href="https://github.com/albertolicea00/casero.cu-apk" target="_blank" rel="noopener">su repositorio</a>.</p>
 
-      <h2>1. Quién trata los datos</h2>
-      <p>El responsable de este sitio y de las apps es Alberto Licea, desarrollador independiente. CASERO.cu no opera ningún servidor propio que reciba tus credenciales o los datos de tus huéspedes — esos viajan directo al portal oficial, como se explica abajo.</p>
+      <h2>1. Quién es responsable</h2>
+      <p>El responsable de este sitio y de las apps es Alberto Licea, desarrollador independiente. CASERO.cu <strong>no opera ningún servidor</strong> que reciba tus credenciales del portal ni los datos de tus huéspedes: esos datos viajan directo de tu teléfono al portal oficial o se quedan en tu teléfono, como se explica abajo.</p>
+      <p>Los datos que tienes en el portal oficial (<code class="code-inline">casero.rem.cu</code>) los trata la entidad que lo opera, no nosotros. Sobre tus huéspedes, el responsable de recogerlos y reportarlos eres tú como arrendador (ver sección 8).</p>
 
-      <h2>2. Tus credenciales del portal</h2>
-      <p>Cuando inicias sesión en la app, tu usuario y contraseña se envían <strong>directamente</strong> a <code class="code-inline">casero.rem.cu</code> (el portal oficial), exactamente igual que si los escribieras en un navegador. La app no guarda tu contraseña en el dispositivo ni la envía a ningún servidor de CASERO.cu. Las cookies de sesión que devuelve el portal se manejan con el almacenamiento estándar del sistema operativo, igual que lo haría un navegador, hasta que expiran o cierras sesión.</p>
+      <h2>2. Resumen</h2>
+      <ul>
+        <li>Sin cuentas de CASERO.cu, sin servidores propios para la app, sin anuncios.</li>
+        <li>La app no usa analítica ni rastreo, y no incluye SDKs de terceros.</li>
+        <li>Lo que guarda la app (contraseña, huéspedes, fotos) se queda en tu teléfono, protegido por el sistema, y se borra al cerrar sesión.</li>
+        <li>La app solo se conecta a <code class="code-inline">casero.rem.cu</code>. Los SMS y llamadas los haces tú desde iOS.</li>
+        <li>Este sitio web usa Microsoft Clarity para medir visitas, y Brevo solo si te suscribes al aviso.</li>
+      </ul>
 
-      <h2>3. Los datos de tus huéspedes</h2>
-      <p>Los nombres, pasaportes, teléfonos y demás datos que introduces para reportar un huésped se envían igualmente de forma directa al portal oficial — no pasan ni se guardan en ningún servidor de CASERO.cu. Somos un cliente que replica lo que harías desde el navegador, no un intermediario que retiene esa información.</p>
+      <h2>3. La app para iPhone</h2>
+
+      <h3>3.1 Datos que maneja</h3>
+      <ul>
+        <li><strong>Tu usuario y contraseña del portal.</strong> Se envían directamente a <code class="code-inline">casero.rem.cu</code> al iniciar sesión, igual que en un navegador.</li>
+        <li><strong>Las cookies de sesión del portal.</strong> Las guarda el almacenamiento estándar de iOS mientras dura la sesión; se borran al cerrar sesión.</li>
+        <li><strong>Datos de tus huéspedes y acompañantes</strong> que consultas o reportas: nombre, pasaporte o carné de identidad, nacionalidad, sexo, fecha de nacimiento, fechas de estancia, ID de estancia y, si lo activas, su foto.</li>
+        <li><strong>Tu perfil y tus vías de comunicación</strong> del portal (nombre, CI, usuario, provincia, municipio, dirección, teléfonos y correos). Se leen del portal para mostrártelos y no se guardan.</li>
+        <li><strong>Mensajes SMS de reporte.</strong> La app solo los prepara; los envías tú desde la app Mensajes de iOS. La app no lee tu bandeja de mensajes.</li>
+      </ul>
+
+      <h3>3.2 Qué se guarda en el teléfono y cómo</h3>
+      <ul>
+        <li><strong>Contraseña</strong>, solo si "Recordar credenciales" está activado (lo está por defecto): en el Llavero (Keychain) de iOS, con la protección <em>solo cuando el dispositivo está desbloqueado y solo en este dispositivo</em>. No se copia a copias de seguridad ni a otros dispositivos.</li>
+        <li><strong>Antes de usar la contraseña guardada</strong> iOS pide Face ID, Touch ID o el código del dispositivo. Si el teléfono no tiene código, la app no inicia sesión sola.</li>
+        <li><strong>Huéspedes y fotos en caché</strong>, para consultarlos sin conexión: archivos con la protección completa de iOS (cifrados mientras el teléfono está bloqueado). Se guardan el tiempo que elijas en Ajustes → Caché (de 1 hora a 12 meses, o sin límite). Las fotos solo si activas "Guardar fotos de huéspedes".</li>
+        <li><strong>Exportaciones y PDF</strong> (CSV/Excel, PDF de registros): se crean en una carpeta temporal protegida y solo salen del teléfono si tú los compartes.</li>
+        <li><strong>Preferencias</strong> (rango de fechas, caché, sesión): en los ajustes de la app.</li>
+      </ul>
+
+      <h3>3.3 A quién se envía</h3>
+      <ul>
+        <li><strong>Al portal oficial</strong> <code class="code-inline">casero.rem.cu</code>, por HTTPS. La app fija (<em>pinning</em>) el certificado conocido del portal y no relaja la seguridad TLS para ningún otro sitio.</li>
+        <li><strong>Al servicio SMS 7344 y al 18808</strong>, solo cuando tú envías el mensaje o haces la llamada desde iOS. Se aplican las tarifas de tu operador.</li>
+        <li><strong>Enlaces externos</strong> (portal, guía de Cubatrámite, GitHub) se abren en Safari, fuera de la app.</li>
+        <li><strong>A nadie más.</strong> La app no tiene analítica, publicidad ni rastreo; su manifiesto de privacidad para Apple declara que no rastrea.</li>
+      </ul>
+
+      <h3>3.4 Lo que puedes controlar</h3>
+      <ul>
+        <li>"Recordar credenciales" y "Reautenticar al expirar" (esta última desactivada por defecto) en Ajustes.</li>
+        <li>Cuánto tiempo se guardan los huéspedes, si se guardan sus fotos, y "Vaciar caché".</li>
+        <li><strong>Cerrar sesión</strong> borra la contraseña guardada, las cookies, los huéspedes en caché y las fotos.</li>
+        <li>Desinstalar la app borra todos sus datos del teléfono.</li>
+      </ul>
 
       <h2>4. Este sitio web</h2>
       <ul>
-        <li><strong>Formulario "Avísame":</strong> si dejas tu correo para que te avisemos del lanzamiento, ese correo se envía y guarda en <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener">Brevo</a>, un servicio externo de email marketing, únicamente para enviarte ese aviso. Puedes pedir que lo borren en cualquier momento (ver sección de contacto).</li>
-        <li><strong>API pública de GitHub:</strong> el sitio consulta <code class="code-inline">api.github.com</code> para mostrar el número de estrellas de los repositorios. Es una lectura pública — no se envía ningún dato tuyo.</li>
+        <li><strong>Microsoft Clarity:</strong> el sitio (fuera de <code class="code-inline">localhost</code>) carga Clarity para entender cómo se usa: páginas vistas, clics, desplazamiento y grabaciones anónimas de la sesión. Clarity puede guardar cookies propias en tu navegador. Lo trata Microsoft según su <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">declaración de privacidad</a>. Puedes bloquearlo con el bloqueador de contenido de tu navegador.</li>
+        <li><strong>Formulario "Avísame":</strong> si dejas tu correo, se envía a <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener">Brevo</a> y se guarda allí solo para avisarte del lanzamiento. Puedes pedir que lo borren en cualquier momento.</li>
+        <li><strong>API pública de GitHub:</strong> el sitio consulta <code class="code-inline">api.github.com</code> para mostrar las estrellas de los repositorios. Tu navegador hace esa petición; no se envía ningún dato tuyo aparte de los propios de cualquier visita (como tu IP).</li>
+        <li><strong>Modo claro/oscuro:</strong> tu preferencia se guarda en el almacenamiento local de tu navegador y no sale de él.</li>
+        <li>El sitio se aloja en Vercel, que como cualquier hosting procesa datos técnicos de cada visita (IP, navegador) para servir las páginas.</li>
       </ul>
 
-      <h2>5. Cookies</h2>
-      <p>Este sitio no usa cookies propias de seguimiento ni analítica de terceros. Tu preferencia de modo claro/oscuro se guarda en el almacenamiento local de tu navegador — no sale de él.</p>
+      <h2>5. Con quién se comparten datos</h2>
+      <p>No vendemos ni cedemos datos a nadie. Los datos de la app van al portal oficial porque reportar es el propósito de la app: lo decides tú en cada envío. En el sitio web, los terceros son Microsoft Clarity (todas las visitas), Brevo (solo si te suscribes), GitHub (estrellas) y Vercel (alojamiento).</p>
 
-      <h2>6. Con quién se comparten datos</h2>
-      <p>No vendemos ni cedemos datos a nadie. Tus credenciales y los datos de tus huéspedes van directamente a <code class="code-inline">casero.rem.cu</code> porque ese es el propósito mismo de la app — no es algo que "compartamos" nosotros, es adonde tú decides reportar. El único tercero de este sitio web es Brevo, y solo si te suscribes con tu correo.</p>
+      <h2>6. Seguridad</h2>
+      <p>Las medidas de la app están descritas en la sección 3 y en el <a href="https://github.com/albertolicea00/casero.cu-ios/blob/main/SECURITY.md" target="_blank" rel="noopener">SECURITY.md</a> del repositorio. Si encuentras una vulnerabilidad, abre un issue <strong>sin incluir contraseñas, cookies ni datos reales de huéspedes</strong>. Los fallos del portal oficial deben reportarse a la entidad que lo opera.</p>
+      <p>Ninguna medida protege un teléfono desbloqueado y prestado: quien use la app con tu sesión puede ver datos de huéspedes y reportar a tu nombre. Usa código de bloqueo en el teléfono.</p>
 
       <h2>7. Tus derechos</h2>
-      <p>Puedes pedir en cualquier momento que se elimine tu correo de la lista de suscripción de este sitio. Para tus datos dentro del portal oficial (casero.rem.cu), el responsable de esa información es la entidad que opera el portal, no nosotros.</p>
+      <ul>
+        <li>Puedes borrar todo lo que guarda la app cerrando sesión, vaciando la caché o desinstalándola.</li>
+        <li>Puedes pedir que se borre tu correo de la lista de aviso del sitio.</li>
+        <li>Para tus datos y los de tus huéspedes dentro del portal oficial, dirígete a la entidad que lo opera (consultas de la DIMEC: teléfono 18808).</li>
+      </ul>
 
-      <h2>8. Menores de edad</h2>
-      <p>Este sitio y las apps no están dirigidos específicamente a menores de edad y no se recopila intencionalmente información de menores.</p>
+      <h2 id="marco-legal">8. Marco legal</h2>
+      <p>Esta sección resume las normas cubanas relacionadas. <strong>No es asesoramiento legal.</strong> Consulta los textos oficiales en la <a href="https://www.gacetaoficial.gob.cu/" target="_blank" rel="noopener">Gaceta Oficial de la República de Cuba</a>.</p>
 
-      <h2>9. Cambios a esta política</h2>
-      <p>Esta política puede actualizarse si cambian las herramientas usadas en el sitio o las apps. La fecha de "Última actualización" arriba refleja la versión vigente.</p>
+      <h3>Protección de datos personales</h3>
+      <ul>
+        <li><strong>Ley 149 de 2022, de Protección de Datos Personales.</strong> Se aplica a los datos de tus huéspedes. La app está diseñada con privacidad por defecto (datos solo en el dispositivo, protegidos, con caducidad y borrado), pero sus medidas no son una revisión legal de esa ley.</li>
+      </ul>
 
-      <h2>10. Contacto</h2>
-      <p>Para dudas sobre privacidad, abre un issue en el repo de <a href="https://github.com/albertolicea00/casero.cu-ios/issues" target="_blank" rel="noopener">iOS</a> o <a href="https://github.com/albertolicea00/casero.cu-apk/issues" target="_blank" rel="noopener">Android</a>.</p>
+      <h3>Por qué el arrendador trata los datos de sus huéspedes</h3>
+      <p>Reportar a los huéspedes es una obligación legal del arrendador. Las normas que la establecen son, entre otras:</p>
+      <ul>
+        <li><strong>Decreto-Ley 171 de 1997</strong>, sobre el arrendamiento de viviendas, habitaciones o espacios.</li>
+        <li><strong>Decreto-Ley 90 de 2024</strong>, sobre el trabajo por cuenta propia. Su artículo 27, modificado por el <strong>Decreto-Ley 133 de 2026</strong>, obliga a llevar el Registro de Arrendatarios y sus acompañantes, a custodiarlo 5 años y a informar al MININT.</li>
+        <li><strong>Decreto 160 de 2026</strong>, vigente desde el 4 de agosto de 2026: la obligación de informar al MININT alcanza a todos los actores económicos no estatales que arriendan a personas residentes en el exterior.</li>
+        <li><strong>Ley 173 de 2024, de Extranjería</strong> (artículo 69): comunicar las entradas y salidas de huéspedes, incluso en estancias de menos de 24 horas.</li>
+        <li><strong>Decreto 137 de 2025</strong>, Reglamento de la Ley de Extranjería (artículo 38): informar entradas y salidas dentro de las 24 horas.</li>
+        <li><strong>Decreto-Ley 91 de 2024</strong>: contravenciones y multas por incumplir estas obligaciones.</li>
+      </ul>
+      <p>La caché de la app <strong>no sustituye</strong> el Registro de Arrendatarios que exige la ley ni su custodia de 5 años: puede borrarse en cualquier momento. Un resumen de estas obligaciones está en la sección "Fuente: Cubatrámite" de la app, basado en la <a href="https://cubatramite.com/reporte-a-inmigracion-del-registro-de-turistas-extranjeros-hospedados-en-viviendas-de-alquiler/" target="_blank" rel="noopener">guía de Cubatrámite</a> (actualizada el 29 de octubre de 2026).</p>
+
+      <h3>Tiendas de apps</h3>
+      <p>Si instalas la app desde la App Store o Google Play, también aplican las políticas de Apple o de Google como distribuidores (ver <a href="eula.html">EULA</a>).</p>
+
+      <h2>9. Menores de edad</h2>
+      <p>El sitio y las apps no están dirigidos a menores. Los datos de huéspedes menores que reportes como arrendador están sujetos a las mismas obligaciones legales y protecciones que los demás.</p>
+
+      <h2>10. Cambios a esta política</h2>
+      <p>Esta política se actualiza cuando cambian las apps, las herramientas del sitio o las normas citadas. La fecha de "Última actualización" indica la versión vigente.</p>
+
+      <h2>11. Contacto</h2>
+      <p>Para dudas sobre privacidad, abre un issue en el repositorio de <a href="https://github.com/albertolicea00/casero.cu-ios/issues" target="_blank" rel="noopener">iOS</a> o de <a href="https://github.com/albertolicea00/casero.cu-apk/issues" target="_blank" rel="noopener">Android</a>, sin incluir datos personales.</p>
     </div>
   </main>
 

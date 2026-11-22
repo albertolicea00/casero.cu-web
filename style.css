@@ -164,6 +164,14 @@ body { overflow-x: hidden; }
   margin-bottom: 0.75rem;
 }
 .dark .legal-content h2 { color: #fff; }
+.legal-content h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #262626;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.dark .legal-content h3 { color: #e5e5e5; }
 .legal-content p, .legal-content li {
   font-size: 0.9rem;
   line-height: 1.7;
